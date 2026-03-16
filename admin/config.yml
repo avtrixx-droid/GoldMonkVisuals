@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: dynamic
+  branch: Dynamic
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
