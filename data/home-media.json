@@ -1,0 +1,58 @@
+{
+  "slider": [
+    {
+      "src": "images/home-slider/DYPATIL4.jpg",
+      "alt": "GoldMonkVisuals sports photography highlight"
+    },
+    {
+      "src": "images/home-slider/DYPATIL1.jpg",
+      "alt": "GoldMonkVisuals sports photography highlight"
+    },
+    {
+      "src": "images/home-slider/DYPATIL2.jpg",
+      "alt": "GoldMonkVisuals sports photography highlight"
+    },
+    {
+      "src": "images/home-slider/DYPATIL3.jpg",
+      "alt": "GoldMonkVisuals sports photography highlight"
+    },
+    {
+      "src": "images/home-slider/DYPATIL5.jpg",
+      "alt": "GoldMonkVisuals sports photography highlight"
+    },
+    {
+      "src": "images/home-slider/DYPATIL6.jpg",
+      "alt": "GoldMonkVisuals sports photography highlight"
+    },
+    {
+      "src": "images/home-slider/DYPATIL7.jpg",
+      "alt": "GoldMonkVisuals sports photography highlight"
+    }
+  ],
+  "footer": [
+    {
+      "src": "images/footer-gallery/DYPATIL4.jpg",
+      "alt": "GoldMonkVisuals sports photography preview"
+    },
+    {
+      "src": "images/footer-gallery/DYPATIL1.jpg",
+      "alt": "GoldMonkVisuals sports photography preview"
+    },
+    {
+      "src": "images/footer-gallery/DYPATIL2.jpg",
+      "alt": "GoldMonkVisuals sports photography preview"
+    },
+    {
+      "src": "images/footer-gallery/DYPATIL3.jpg",
+      "alt": "GoldMonkVisuals sports photography preview"
+    },
+    {
+      "src": "images/footer-gallery/GOLD3033.jpg",
+      "alt": "GoldMonkVisuals sports photography preview"
+    },
+    {
+      "src": "images/footer-gallery/DYPATIL5.jpg",
+      "alt": "GoldMonkVisuals sports photography preview"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "meta": {
+    "title": "GoldMonkVisuals | Rumit Khade Photography",
+    "description": "GoldMonkVisuals is the photography portfolio of Rumit Khade, featuring sports storytelling, portraits, and inquiries on a clean single-page website."
+  },
+  "brand": {
+    "logoSrc": "images/logo/goldmonks_logo.png",
+    "logoAlt": "GoldMonkVisuals logo",
+    "kicker": "Rumit Khade Photography",
+    "name": "GoldMonkVisuals"
+  },
+  "navigation": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "inquire": "Inquire"
+  },
+  "about": {
+    "eyebrow": "About Me",
+    "heading": "Hi, I’m Rumit Khade.",
+    "portraitSrc": "images/about-1773652373765-img_5701.jpeg",
+    "portraitAlt": "Portrait of Rumit Khade, photographer behind GoldMonkVisuals",
+    "paragraphs": [
+      "I’m a Pune-based photographer and the creative eye behind GoldMonkVisuals, serving people and brands across Pune, Mumbai, and beyond. I enjoy photographing a wide range of subjects, from portraits and events to lifestyle and candid moments, but sports photography is where my passion truly lies.",
+      "Capturing the intensity of competition, the raw emotions of players, and those split-second moments that define the game is what excites me the most. Over the years, I’ve had the opportunity to cover tournaments such as the DY Patil T20 League, TRPS Corporate Cricket League, and several local and club cricket tournaments, documenting the journey of teams and athletes through powerful visuals.",
+      "My goal is simple: to create images that allow players, teams, and fans to relive the energy and emotion of the game long after the final ball is bowled."
+    ]
+  },
+  "inquiry": {
+    "eyebrow": "Booking",
+    "heading": "Tell me what you need.",
+    "paragraphs": [
+      "Whether you are booking a tournament, a player shoot, a portrait session, or event coverage, the inquiry form below is designed to keep the first step simple and professional.",
+      "You can also reach out directly through Instagram, mobile, or LinkedIn if that is easier for you."
+    ]
+  },
+  "footer": {
+    "followText": "Stay in touch, follow me on Instagram",
+    "copyright": "© 2026 GoldMonkVisuals.com",
+    "instagramUrl": "https://www.instagram.com/goldmonkvisuals/",
+    "phoneUrl": "tel:+919209184662",
+    "linkedinUrl": "https://www.linkedin.com/in/rumit-khade-336886b6/"
+  }
+}

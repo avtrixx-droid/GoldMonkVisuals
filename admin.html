@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GoldMonkVisuals Admin</title>
+  <meta name="description" content="Local admin dashboard for maintaining the GoldMonkVisuals homepage content and media.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="admin-body">
+  <main class="admin-shell">
+    <section class="admin-login" data-admin-login>
+      <div class="admin-auth-card">
+        <p class="eyebrow">Admin Access</p>
+        <h1>GoldMonkVisuals Admin</h1>
+        <p class="admin-subtle">Use the configured admin ID and password to manage homepage text and media locally.</p>
+        <form class="admin-auth-form" data-admin-auth-form>
+          <label class="form-field">
+            <span>Admin ID</span>
+            <input type="text" name="adminId" autocomplete="username" required>
+          </label>
+          <label class="form-field">
+            <span>Password</span>
+            <input type="password" name="password" autocomplete="current-password" required>
+          </label>
+          <button class="button submit-button admin-submit" type="submit">Unlock Admin</button>
+        </form>
+        <p class="admin-message" data-admin-auth-message></p>
+      </div>
+    </section>
+
+    <section class="admin-app" data-admin-app hidden>
+      <header class="admin-topbar">
+        <div>
+          <p class="eyebrow">Local Content Manager</p>
+          <h1>Homepage Content Admin</h1>
+        </div>
+        <div class="admin-topbar-actions">
+          <button class="button button-soft" type="button" data-connect-folder>Connect Project Folder</button>
+          <button class="button submit-button admin-save" type="button" data-save-admin>Save Changes</button>
+          <button class="button button-soft" type="button" data-logout-admin>Logout</button>
+        </div>
+      </header>
+
+      <p class="admin-status" data-admin-status>Load the current homepage content, then connect the project folder to save updates locally.</p>
+
+      <div class="admin-grid">
+        <section class="copy-card admin-card">
+          <p class="eyebrow">Brand</p>
+          <div class="admin-fields">
+            <label class="form-field">
+              <span>Meta Title</span>
+              <input type="text" data-field="meta.title">
+            </label>
+            <label class="form-field">
+              <span>Meta Description</span>
+              <textarea rows="4" data-field="meta.description"></textarea>
+            </label>
+            <label class="form-field">
+              <span>Brand Kicker</span>
+              <input type="text" data-field="brand.kicker">
+            </label>
+            <label class="form-field">
+              <span>Brand Name</span>
+              <input type="text" data-field="brand.name">
+            </label>
+            <label class="form-field">
+              <span>Logo Path</span>
+              <input type="text" data-field="brand.logoSrc">
+            </label>
+          </div>
+        </section>
+
+        <section class="copy-card admin-card">
+          <p class="eyebrow">Navigation</p>
+          <div class="admin-fields admin-compact-grid">
+            <label class="form-field">
+              <span>Home Label</span>
+              <input type="text" data-field="navigation.home">
+            </label>
+            <label class="form-field">
+              <span>Portfolio Label</span>
+              <input type="text" data-field="navigation.portfolio">
+            </label>
+            <label class="form-field">
+              <span>About Label</span>
+              <input type="text" data-field="navigation.about">
+            </label>
+            <label class="form-field">
+              <span>Inquire Label</span>
+              <input type="text" data-field="navigation.inquire">
+            </label>
+          </div>
+        </section>
+
+        <section class="copy-card admin-card admin-card-wide">
+          <p class="eyebrow">About Me</p>
+          <div class="admin-fields">
+            <label class="form-field">
+              <span>Eyebrow</span>
+              <input type="text" data-field="about.eyebrow">
+            </label>
+            <label class="form-field">
+              <span>Heading</span>
+              <input type="text" data-field="about.heading">
+            </label>
+            <label class="form-field">
+              <span>Portrait Path</span>
+              <input type="text" data-field="about.portraitSrc">
+            </label>
+            <label class="form-field">
+              <span>Portrait Alt Text</span>
+              <input type="text" data-field="about.portraitAlt">
+            </label>
+            <label class="form-field">
+              <span>About Paragraphs</span>
+              <textarea rows="10" data-field-textarea="about.paragraphs"></textarea>
+            </label>
+            <label class="form-field">
+              <span>Replace Portrait Image</span>
+              <input type="file" accept="image/*" data-upload-single="aboutPortrait">
+            </label>
+          </div>
+        </section>
+
+        <section class="copy-card admin-card">
+          <p class="eyebrow">Inquire Section</p>
+          <div class="admin-fields">
+            <label class="form-field">
+              <span>Eyebrow</span>
+              <input type="text" data-field="inquiry.eyebrow">
+            </label>
+            <label class="form-field">
+              <span>Heading</span>
+              <input type="text" data-field="inquiry.heading">
+            </label>
+            <label class="form-field">
+              <span>Paragraphs</span>
+              <textarea rows="8" data-field-textarea="inquiry.paragraphs"></textarea>
+            </label>
+          </div>
+        </section>
+
+        <section class="copy-card admin-card">
+          <p class="eyebrow">Footer</p>
+          <div class="admin-fields">
+            <label class="form-field">
+              <span>Follow Text</span>
+              <input type="text" data-field="footer.followText">
+            </label>
+            <label class="form-field">
+              <span>Copyright</span>
+              <input type="text" data-field="footer.copyright">
+            </label>
+            <label class="form-field">
+              <span>Instagram URL</span>
+              <input type="text" data-field="footer.instagramUrl">
+            </label>
+            <label class="form-field">
+              <span>Phone URL</span>
+              <input type="text" data-field="footer.phoneUrl">
+            </label>
+            <label class="form-field">
+              <span>LinkedIn URL</span>
+              <input type="text" data-field="footer.linkedinUrl">
+            </label>
+          </div>
+        </section>
+
+        <section class="copy-card admin-card admin-card-wide">
+          <p class="eyebrow">Carousel Images</p>
+          <div class="admin-media-panel">
+            <div class="admin-media-actions">
+              <input type="file" accept="image/*" multiple data-upload-list="slider">
+            </div>
+            <div class="admin-media-list" data-media-list="slider"></div>
+          </div>
+        </section>
+
+        <section class="copy-card admin-card admin-card-wide">
+          <p class="eyebrow">Footer Images</p>
+          <div class="admin-media-panel">
+            <div class="admin-media-actions">
+              <input type="file" accept="image/*" multiple data-upload-list="footer">
+            </div>
+            <div class="admin-media-list" data-media-list="footer"></div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/admin-config.js"></script>
+  <script src="js/admin.js" defer></script>
+</body>
+</html>

@@ -19,19 +19,19 @@ photography-portfolio/
     home-slider/
     footer-gallery/
     Portfolio/
+  data/
   css/
     styles.css
   js/
+    admin.js
+    admin-config.js
     site.js
-  sections/
-    slider-section.html
-    about-section.html
-    inquire-section.html
-    footer-section.html
+  admin.html
   index.html
   portfolio.html
   scripts/
     generate-image-manifests.sh
+    generate-portfolio-manifest.py
   README.md
 ```
 
@@ -48,6 +48,58 @@ python3 -m http.server 8000
 
 Then open `http://localhost:8000`.
 
+## Homepage Content Admin
+
+The homepage is now data-driven and reads from:
+
+- [`data/site-content.json`](/Users/avtrix/Projects/photography-portfolio/data/site-content.json)
+- [`data/home-media.json`](/Users/avtrix/Projects/photography-portfolio/data/home-media.json)
+
+Use the local admin route:
+
+- [`admin.html`](/Users/avtrix/Projects/photography-portfolio/admin.html)
+
+Current basic admin credentials are stored in:
+
+- [`js/admin-config.js`](/Users/avtrix/Projects/photography-portfolio/js/admin-config.js)
+
+Important: because this is still a static site, the admin login is only a basic frontend gate. It is useful for local maintenance, but it is not real secure authentication.
+
+### Using the Admin Page
+
+1. Run the site locally with a static server:
+
+```bash
+cd /Users/avtrix/Projects/photography-portfolio
+python3 -m http.server 8000
+```
+
+2. Open:
+
+- [http://localhost:8000/admin.html](http://localhost:8000/admin.html)
+
+3. Login with the credentials from [`js/admin-config.js`](/Users/avtrix/Projects/photography-portfolio/js/admin-config.js)
+
+4. Click `Connect Project Folder`
+
+5. Select the project root:
+
+- [`photography-portfolio`](/Users/avtrix/Projects/photography-portfolio)
+
+6. Edit homepage content and media, then click `Save Changes`
+
+The admin page can update:
+
+- brand text
+- navigation labels
+- About Me text
+- inquiry text
+- footer text and links
+- homepage carousel images
+- footer gallery images
+
+If the browser supports the File System Access API and the folder is connected, changes are written directly to the local files. Otherwise, JSON files are downloaded as a fallback.
+
 ## Updating Homepage Images
 
 Put homepage slider images in [`images/home-slider`](/Users/avtrix/Projects/photography-portfolio/images/home-slider) and footer strip images in [`images/footer-gallery`](/Users/avtrix/Projects/photography-portfolio/images/footer-gallery).
@@ -59,10 +111,9 @@ cd photography-portfolio
 sh scripts/generate-image-manifests.sh
 ```
 
-The homepage reads from:
+The homepage now reads image lists from:
 
-- [`images/home-slider/manifest.js`](/Users/avtrix/Projects/photography-portfolio/images/home-slider/manifest.js)
-- [`images/footer-gallery/manifest.js`](/Users/avtrix/Projects/photography-portfolio/images/footer-gallery/manifest.js)
+- [`data/home-media.json`](/Users/avtrix/Projects/photography-portfolio/data/home-media.json)
 
 ## Updating Portfolio Images
 

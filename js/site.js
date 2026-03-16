@@ -1,3 +1,13 @@
+async function fetchJson(path) {
+  const response = await fetch(path, { cache: "no-store" });
+
+  if (!response.ok) {
+    throw new Error(`Failed to load ${path}`);
+  }
+
+  return response.json();
+}
+
 function setupNav() {
   const navToggle = document.querySelector(".nav-toggle");
   const siteNav = document.querySelector(".site-nav");
@@ -43,6 +53,114 @@ function setupNav() {
         closeMenu();
       }
     });
+  }
+}
+
+function renderTextBlocks(target, paragraphs) {
+  if (!target || !Array.isArray(paragraphs)) {
+    return;
+  }
+
+  target.innerHTML = paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join("");
+}
+
+function renderSiteContent(content) {
+  if (!content) {
+    return;
+  }
+
+  if (content.meta?.title) {
+    document.title = content.meta.title;
+  }
+
+  const metaDescription = document.querySelector("[data-meta-description]");
+  if (metaDescription && content.meta?.description) {
+    metaDescription.setAttribute("content", content.meta.description);
+  }
+
+  const brandLogo = document.querySelector("[data-brand-logo]");
+  if (brandLogo && content.brand?.logoSrc) {
+    brandLogo.src = content.brand.logoSrc;
+    brandLogo.alt = content.brand.logoAlt || brandLogo.alt;
+  }
+
+  const brandKicker = document.querySelector("[data-brand-kicker]");
+  if (brandKicker && content.brand?.kicker) {
+    brandKicker.textContent = content.brand.kicker;
+  }
+
+  const brandName = document.querySelector("[data-brand-name]");
+  if (brandName && content.brand?.name) {
+    brandName.textContent = content.brand.name;
+  }
+
+  const navMap = {
+    home: "[data-nav-home]",
+    portfolio: "[data-nav-portfolio]",
+    about: "[data-nav-about]",
+    inquire: "[data-nav-inquire]"
+  };
+
+  Object.entries(navMap).forEach(([key, selector]) => {
+    const target = document.querySelector(selector);
+    if (target && content.navigation?.[key]) {
+      target.textContent = content.navigation[key];
+    }
+  });
+
+  const aboutPortrait = document.querySelector("[data-about-portrait]");
+  if (aboutPortrait && content.about?.portraitSrc) {
+    aboutPortrait.src = content.about.portraitSrc;
+    aboutPortrait.alt = content.about.portraitAlt || aboutPortrait.alt;
+  }
+
+  const aboutEyebrow = document.querySelector("[data-about-eyebrow]");
+  if (aboutEyebrow && content.about?.eyebrow) {
+    aboutEyebrow.textContent = content.about.eyebrow;
+  }
+
+  const aboutHeading = document.querySelector("[data-about-heading]");
+  if (aboutHeading && content.about?.heading) {
+    aboutHeading.textContent = content.about.heading;
+  }
+
+  renderTextBlocks(document.querySelector("[data-about-paragraphs]"), content.about?.paragraphs);
+
+  const inquiryEyebrow = document.querySelector("[data-inquiry-eyebrow]");
+  if (inquiryEyebrow && content.inquiry?.eyebrow) {
+    inquiryEyebrow.textContent = content.inquiry.eyebrow;
+  }
+
+  const inquiryHeading = document.querySelector("[data-inquiry-heading]");
+  if (inquiryHeading && content.inquiry?.heading) {
+    inquiryHeading.textContent = content.inquiry.heading;
+  }
+
+  renderTextBlocks(document.querySelector("[data-inquiry-paragraphs]"), content.inquiry?.paragraphs);
+
+  const footerFollow = document.querySelector("[data-footer-follow]");
+  if (footerFollow && content.footer?.followText) {
+    footerFollow.textContent = content.footer.followText;
+  }
+
+  const footerCopyright = document.querySelector("[data-footer-copyright]");
+  if (footerCopyright && content.footer?.copyright) {
+    footerCopyright.textContent = content.footer.copyright;
+  }
+
+  const footerInstagram = document.querySelector("[data-footer-instagram]");
+  if (footerInstagram && content.footer?.instagramUrl) {
+    footerInstagram.href = content.footer.instagramUrl;
+  }
+
+  const footerPhone = document.querySelector("[data-footer-phone]");
+  if (footerPhone && content.footer?.phoneUrl) {
+    footerPhone.href = content.footer.phoneUrl;
+  }
+
+  const footerLinkedin = document.querySelector("[data-footer-linkedin]");
+  if (footerLinkedin && content.footer?.linkedinUrl) {
+    footerLinkedin.href = content.footer.linkedinUrl;
   }
 }
 
@@ -371,15 +489,29 @@ function setupLightbox() {
 async function renderHomeMedia() {
   const sliderTarget = document.querySelector("[data-slider-track]");
   const footerTarget = document.querySelector("[data-footer-gallery]");
+  const contentTarget = document.querySelector("[data-brand-name]");
 
-  if (sliderTarget) {
-    const sliderItems = Array.isArray(window.HOME_SLIDER_IMAGES) ? window.HOME_SLIDER_IMAGES : [];
-    renderSlider(sliderItems);
+  if (!sliderTarget && !footerTarget && !contentTarget) {
+    return;
   }
 
-  if (footerTarget) {
-    const footerItems = Array.isArray(window.FOOTER_GALLERY_IMAGES) ? window.FOOTER_GALLERY_IMAGES : [];
-    renderFooterGallery(footerItems);
+  try {
+    const [siteContent, homeMedia] = await Promise.all([
+      fetchJson("data/site-content.json"),
+      fetchJson("data/home-media.json")
+    ]);
+
+    renderSiteContent(siteContent);
+
+    if (sliderTarget) {
+      renderSlider(Array.isArray(homeMedia.slider) ? homeMedia.slider : []);
+    }
+
+    if (footerTarget) {
+      renderFooterGallery(Array.isArray(homeMedia.footer) ? homeMedia.footer : []);
+    }
+  } catch (error) {
+    console.error(error);
   }
 }
 
