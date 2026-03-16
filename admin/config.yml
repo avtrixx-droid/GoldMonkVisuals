@@ -1,0 +1,93 @@
+backend:
+  name: git-gateway
+  branch: dynamic
+
+local_backend: true
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+site_url: "/"
+display_url: "/"
+
+collections:
+  - name: "homepage_content"
+    label: "Homepage Content"
+    files:
+      - name: "site_content"
+        label: "Site Content"
+        file: "data/site-content.json"
+        format: "json"
+        fields:
+          - label: "Meta"
+            name: "meta"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+          - label: "Brand"
+            name: "brand"
+            widget: "object"
+            fields:
+              - { label: "Logo", name: "logoSrc", widget: "image", required: true }
+              - { label: "Logo Alt", name: "logoAlt", widget: "string" }
+              - { label: "Kicker", name: "kicker", widget: "string" }
+              - { label: "Brand Name", name: "name", widget: "string" }
+          - label: "Navigation"
+            name: "navigation"
+            widget: "object"
+            fields:
+              - { label: "Home Label", name: "home", widget: "string" }
+              - { label: "Portfolio Label", name: "portfolio", widget: "string" }
+              - { label: "About Label", name: "about", widget: "string" }
+              - { label: "Inquire Label", name: "inquire", widget: "string" }
+          - label: "About"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Portrait Image", name: "portraitSrc", widget: "image" }
+              - { label: "Portrait Alt", name: "portraitAlt", widget: "string" }
+              - label: "Paragraphs"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Paragraph", name: "text", widget: "text" }
+          - label: "Inquiry"
+            name: "inquiry"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - label: "Paragraphs"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Paragraph", name: "text", widget: "text" }
+          - label: "Footer"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { label: "Follow Text", name: "followText", widget: "string" }
+              - { label: "Copyright", name: "copyright", widget: "string" }
+              - { label: "Instagram URL", name: "instagramUrl", widget: "string" }
+              - { label: "Phone URL", name: "phoneUrl", widget: "string" }
+              - { label: "LinkedIn URL", name: "linkedinUrl", widget: "string" }
+      - name: "home_media"
+        label: "Homepage Media"
+        file: "data/home-media.json"
+        format: "json"
+        fields:
+          - label: "Carousel Images"
+            name: "slider"
+            widget: "list"
+            summary: "{{fields.src}}"
+            fields:
+              - { label: "Image", name: "src", widget: "image" }
+              - { label: "Alt Text", name: "alt", widget: "string" }
+          - label: "Footer Images"
+            name: "footer"
+            widget: "list"
+            summary: "{{fields.src}}"
+            fields:
+              - { label: "Image", name: "src", widget: "image" }
+              - { label: "Alt Text", name: "alt", widget: "string" }

@@ -23,9 +23,10 @@ photography-portfolio/
   css/
     styles.css
   js/
-    admin.js
-    admin-config.js
     site.js
+  admin/
+    index.html
+    config.yml
   admin.html
   index.html
   portfolio.html
@@ -55,40 +56,42 @@ The homepage is now data-driven and reads from:
 - [`data/site-content.json`](/Users/avtrix/Projects/photography-portfolio/data/site-content.json)
 - [`data/home-media.json`](/Users/avtrix/Projects/photography-portfolio/data/home-media.json)
 
-Use the local admin route:
+The Git-based admin route is:
 
-- [`admin.html`](/Users/avtrix/Projects/photography-portfolio/admin.html)
+- [`admin/`](/Users/avtrix/Projects/photography-portfolio/admin)
 
-Current basic admin credentials are stored in:
+Decap CMS is configured in:
 
-- [`js/admin-config.js`](/Users/avtrix/Projects/photography-portfolio/js/admin-config.js)
+- [`admin/config.yml`](/Users/avtrix/Projects/photography-portfolio/admin/config.yml)
 
-Important: because this is still a static site, the admin login is only a basic frontend gate. It is useful for local maintenance, but it is not real secure authentication.
+This admin flow is now intended for Netlify + Git-based editing rather than local file writes.
 
-### Using the Admin Page
+### Netlify Setup
 
-1. Run the site locally with a static server:
+To make the CMS work on Netlify:
+
+1. Deploy the site to Netlify
+2. Enable `Identity`
+3. Enable `Git Gateway`
+4. Invite your admin user through Netlify Identity
+5. Open `/admin/` on the deployed site and log in
+
+After login, edits are committed back to the Git repo and Netlify redeploys the site automatically.
+
+### Local Preview
+
+You can still preview the public site locally:
 
 ```bash
 cd /Users/avtrix/Projects/photography-portfolio
 python3 -m http.server 8000
 ```
 
-2. Open:
+Then open:
 
-- [http://localhost:8000/admin.html](http://localhost:8000/admin.html)
+- [http://localhost:8000](http://localhost:8000)
 
-3. Login with the credentials from [`js/admin-config.js`](/Users/avtrix/Projects/photography-portfolio/js/admin-config.js)
-
-4. Click `Connect Project Folder`
-
-5. Select the project root:
-
-- [`photography-portfolio`](/Users/avtrix/Projects/photography-portfolio)
-
-6. Edit homepage content and media, then click `Save Changes`
-
-The admin page can update:
+The CMS can update:
 
 - brand text
 - navigation labels
@@ -97,8 +100,6 @@ The admin page can update:
 - footer text and links
 - homepage carousel images
 - footer gallery images
-
-If the browser supports the File System Access API and the folder is connected, changes are written directly to the local files. Otherwise, JSON files are downloaded as a fallback.
 
 ## Updating Homepage Images
 
