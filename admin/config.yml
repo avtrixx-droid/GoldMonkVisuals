@@ -2,13 +2,8 @@ backend:
   name: git-gateway
   branch: dynamic
 
-local_backend: true
-
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
-
-site_url: "/"
-display_url: "/"
 
 collections:
   - name: "homepage_content"

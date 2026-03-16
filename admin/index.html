@@ -66,6 +66,17 @@
     <p>Loading the Git-based content manager. Use this route on Netlify to edit the homepage content and media, then publish changes back to the repository.</p>
   </div>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function (user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function () {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
   <script src="https://unpkg.com/decap-cms@3.5.1/dist/decap-cms.js"></script>
 </body>
 </html>
