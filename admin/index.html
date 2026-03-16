@@ -1,82 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GoldMonkVisuals Admin</title>
-  <meta name="description" content="Git-based content admin for the GoldMonkVisuals website.">
-  <style>
-    :root {
-      color-scheme: light;
-      --bg: #f6f3ea;
-      --card: rgba(255, 255, 255, 0.96);
-      --line: rgba(23, 20, 17, 0.08);
-      --text: #171411;
-      --muted: #6a625a;
-      --gold: #ffd831;
-      --shadow: 0 18px 54px rgba(22, 18, 14, 0.08);
-      --radius: 28px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: "Manrope", system-ui, sans-serif;
-      color: var(--text);
-      background:
-        linear-gradient(180deg, rgba(255, 216, 49, 0.14), rgba(255, 255, 255, 0.92) 26%),
-        var(--bg);
-      display: grid;
-      place-items: center;
-      padding: 2rem;
-    }
-
-    .admin-intro {
-      width: min(42rem, 100%);
-      padding: 2rem;
-      border-radius: var(--radius);
-      background: var(--card);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      text-align: center;
-    }
-
-    .admin-intro img {
-      width: 5rem;
-      height: auto;
-      margin: 0 auto 1rem;
-      display: block;
-    }
-
-    .admin-intro p {
-      margin: 0.75rem 0 0;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-  </style>
-</head>
-<body>
-  <div class="admin-intro">
-    <img src="../images/logo/goldmonks_logo.png" alt="GoldMonkVisuals logo" width="96" height="96">
-    <h1>GoldMonkVisuals Admin</h1>
-    <p>Loading the Git-based content manager. Use this route on Netlify to edit the homepage content and media, then publish changes back to the repository.</p>
-  </div>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", function (user) {
-        if (!user) {
-          window.netlifyIdentity.on("login", function () {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
-  </script>
-  <script src="https://unpkg.com/decap-cms@3.5.1/dist/decap-cms.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Manager</title>
+  </head>
+  <body>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script src="https://unpkg.com/decap-cms@3.5.1/dist/decap-cms.js"></script>
+  </body>
 </html>
