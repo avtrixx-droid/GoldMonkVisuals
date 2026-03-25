@@ -122,6 +122,53 @@ function renderFooterGallery(items) {
   `).join("");
 }
 
+function applyPortfolioCardGradient(card, image) {
+  if (!card || !image || !image.naturalWidth || !image.naturalHeight) {
+    return;
+  }
+
+  const isLandscape = image.naturalWidth > (image.naturalHeight * 1.08);
+
+  if (!isLandscape) {
+    card.classList.remove("is-landscape");
+    card.classList.add("is-portrait");
+    card.style.removeProperty("--portfolio-card-image");
+    return;
+  }
+
+  card.classList.remove("is-portrait");
+  card.classList.add("is-landscape");
+  card.style.setProperty("--portfolio-card-image", `url("${image.currentSrc || image.src}")`);
+}
+
+function decoratePortfolioCards(scope) {
+  const cards = Array.from(scope.querySelectorAll(".portfolio-grid-item"));
+
+  cards.forEach((card) => {
+    if (card.dataset.decorated === "true") {
+      return;
+    }
+
+    const image = card.querySelector("img");
+
+    if (!image) {
+      return;
+    }
+
+    card.dataset.decorated = "true";
+
+    const updateCard = () => {
+      applyPortfolioCardGradient(card, image);
+    };
+
+    if (image.complete) {
+      updateCard();
+    } else {
+      image.addEventListener("load", updateCard, { once: true });
+    }
+  });
+}
+
 function renderPortfolioMedia() {
   const heroImage = document.querySelector("[data-portfolio-hero-image]");
   const portfolioSectionsTarget = document.querySelector("[data-portfolio-sections]");
@@ -146,7 +193,8 @@ function renderPortfolioMedia() {
   const batchSize = 10;
   const createPortfolioCard = (item) => `
     <button class="gallery-item portfolio-grid-item" type="button" data-src="${item.src}" data-alt="${item.alt}">
-      <img src="${item.src}" alt="${item.alt}" width="1600" height="1100" sizes="(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 33vw" loading="lazy">
+      <span aria-hidden="true"></span>
+      <img src="${item.src}" alt="${item.alt}" width="1600" height="1100" sizes="(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 33vw" loading="lazy" decoding="async" crossorigin="anonymous">
     </button>
   `;
 
@@ -191,6 +239,7 @@ function renderPortfolioMedia() {
       section.images.slice(rendered, nextRendered).map(createPortfolioCard).join("")
     );
     grid.dataset.rendered = String(nextRendered);
+    decoratePortfolioCards(grid);
 
     if (nextRendered === 0 || nextRendered >= section.images.length) {
       pagination.hidden = true;

@@ -251,17 +251,118 @@ textarea {
 
 .portfolio-grid-item {
   margin: 0;
-  display: block;
+  display: grid;
+  place-items: center;
   width: 100%;
+  position: relative;
+  padding: 0.85rem;
   appearance: none;
   -webkit-appearance: none;
+  border: 1px solid rgba(23, 20, 17, 0.06);
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 245, 241, 0.96));
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background-color 220ms ease;
+}
+
+.portfolio-grid-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--portfolio-card-image);
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.14);
+  filter: blur(28px) saturate(1.05);
+  opacity: 0;
+  transition: opacity 260ms ease;
+  pointer-events: none;
+}
+
+.portfolio-grid-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.26), transparent 52%);
+  opacity: 0;
+  transition: opacity 260ms ease, transform 420ms ease;
+  pointer-events: none;
+  transform: scale(0.96);
+}
+
+.portfolio-grid-item > span {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.portfolio-grid-item > span::before {
+  content: "";
+  position: absolute;
+  inset: -18%;
+  background: linear-gradient(120deg, transparent 18%, rgba(255, 255, 255, 0.08) 42%, rgba(255, 255, 255, 0.42) 50%, rgba(255, 255, 255, 0.08) 58%, transparent 82%);
+  transform: translateX(-82%) skewX(-14deg);
+  opacity: 0;
+  transition: transform 640ms cubic-bezier(0.22, 0.61, 0.36, 1), opacity 260ms ease;
+}
+
+.portfolio-grid-item.is-landscape {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.1));
+  border-color: rgba(255, 255, 255, 0.34);
+}
+
+.portfolio-grid-item.is-landscape::before {
+  opacity: 1;
 }
 
 .portfolio-grid-item img {
   width: 100%;
-  aspect-ratio: 1 / 1.05;
+  height: min(38rem, 72vh);
+  aspect-ratio: auto;
   object-fit: cover;
-  border-radius: 22px;
+  object-position: center;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  transform-origin: center center;
+  transition: transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1), filter 320ms ease;
+  position: relative;
+  z-index: 1;
+}
+
+.portfolio-grid-item.is-portrait img {
+  object-fit: cover;
+  background: transparent;
+}
+
+.portfolio-grid-item.is-landscape img {
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.portfolio-grid-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 28px 52px rgba(22, 18, 14, 0.14);
+  border-color: rgba(183, 138, 87, 0.22);
+}
+
+.portfolio-grid-item:hover::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.portfolio-grid-item:hover::before {
+  opacity: 1;
+}
+
+.portfolio-grid-item:hover img {
+  transform: scale(1.1);
+  filter: saturate(1.1) contrast(1.03);
+}
+
+.portfolio-grid-item:hover > span::before {
+  transform: translateX(82%) skewX(-14deg);
+  opacity: 1;
 }
 
 .page-hero-content {
@@ -641,6 +742,14 @@ h3 {
   .gallery-item img {
     aspect-ratio: auto;
   }
+
+  .portfolio-grid-item img {
+    height: min(700px, 72vh);
+  }
+
+  .portfolio-grid-item.is-landscape img {
+    object-fit: contain;
+  }
 }
 
 .footer-bottom-row {
@@ -853,10 +962,14 @@ body.lightbox-open {
   .portfolio-grid-item img {
     display: block;
     width: 100%;
-    aspect-ratio: 4 / 5;
-    height: 24rem;
+    aspect-ratio: auto;
+    height: min(24rem, 62vh);
     object-fit: cover;
-    object-position: center 22%;
+    object-position: center;
+  }
+
+  .portfolio-grid-item.is-landscape img {
+    object-fit: contain;
   }
 
   .masonry-grid {
