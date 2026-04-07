@@ -265,47 +265,129 @@ function renderPortfolioMedia() {
 function setupSlider() {
   const sliderTrack = document.querySelector(".slider-track");
   const slideCards = Array.from(document.querySelectorAll(".slide-card"));
+  const dotsContainer = document.querySelector("[data-slider-dots]");
+  const sliderEl = document.querySelector(".image-slider");
 
   if (!sliderTrack || slideCards.length <= 1) {
     return;
   }
 
   let sliderIndex = 0;
+  let intervalId = null;
 
   const visibleSlides = () => {
-    if (window.innerWidth <= 760) {
-      return 1;
-    }
-
-    if (window.innerWidth <= 1100) {
-      return 2;
-    }
-
+    if (window.innerWidth <= 760) return 1;
+    if (window.innerWidth <= 1100) return 2;
     return 3;
   };
 
+  const maxIndex = () => Math.max(slideCards.length - visibleSlides(), 0);
+
+  // Build dots
+  if (dotsContainer) {
+    slideCards.forEach((_, i) => {
+      const dot = document.createElement("button");
+      dot.className = "slider-dot" + (i === 0 ? " is-active" : "");
+      dot.setAttribute("aria-label", `Go to slide ${i + 1}`);
+      dot.addEventListener("click", () => {
+        sliderIndex = Math.min(i, maxIndex());
+        updateSlider();
+      });
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  const updateDots = () => {
+    if (!dotsContainer) return;
+    Array.from(dotsContainer.children).forEach((dot, i) => {
+      dot.classList.toggle("is-active", i === sliderIndex);
+    });
+  };
+
   const updateSlider = () => {
-    const visible = visibleSlides();
-    const maxIndex = Math.max(slideCards.length - visible, 0);
-
-    if (sliderIndex > maxIndex) {
-      sliderIndex = 0;
-    }
-
+    const max = maxIndex();
+    if (sliderIndex > max) sliderIndex = 0;
     const slideWidth = slideCards[0].getBoundingClientRect().width;
     const gap = parseFloat(window.getComputedStyle(sliderTrack).gap) || 0;
     sliderTrack.style.transform = `translateX(-${sliderIndex * (slideWidth + gap)}px)`;
+    updateDots();
   };
+
+  const advance = () => {
+    sliderIndex = sliderIndex >= maxIndex() ? 0 : sliderIndex + 1;
+    updateSlider();
+  };
+
+  const startInterval = () => {
+    intervalId = window.setInterval(advance, 3200);
+  };
+
+  const stopInterval = () => {
+    if (intervalId !== null) {
+      window.clearInterval(intervalId);
+      intervalId = null;
+    }
+  };
+
+  // Pause on hover
+  sliderEl?.addEventListener("mouseenter", stopInterval);
+  sliderEl?.addEventListener("mouseleave", startInterval);
+
+  // Swipe on mobile
+  let touchStartX = 0;
+  sliderEl?.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].clientX;
+    stopInterval();
+  }, { passive: true });
+
+  sliderEl?.addEventListener("touchend", (e) => {
+    const delta = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(delta) > 40) {
+      sliderIndex = delta < 0
+        ? Math.min(sliderIndex + 1, maxIndex())
+        : Math.max(sliderIndex - 1, 0);
+      updateSlider();
+    }
+    startInterval();
+  }, { passive: true });
 
   window.addEventListener("resize", updateSlider);
   updateSlider();
+  startInterval();
+}
 
-  window.setInterval(() => {
-    const visible = visibleSlides();
-    const maxIndex = Math.max(slideCards.length - visible, 0);
-    sliderIndex = sliderIndex >= maxIndex ? 0 : sliderIndex + 1;
-    updateSlider();
-  }, 3200);
+function setupContactForm() {
+  const form = document.querySelector(".contact-form");
+  const successEl = document.getElementById("form-success");
+
+  if (!form || !successEl) return;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const submitBtn = form.querySelector(".submit-button");
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending…";
+    }
+
+    try {
+      const response = await fetch(window.location.pathname || "/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(new FormData(form)).toString(),
+      });
+
+      if (response.ok) {
+        form.hidden = true;
+        successEl.hidden = false;
+      } else {
+        form.submit();
+      }
+    } catch {
+      form.submit();
+    }
+  });
 }
 
 function setupLightbox() {
@@ -439,6 +521,7 @@ async function init() {
   setupReveal();
   setupSlider();
   setupLightbox();
+  setupContactForm();
 }
 
 init();
