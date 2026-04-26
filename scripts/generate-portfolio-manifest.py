@@ -14,6 +14,9 @@ PROJECT_ROOT = "/Users/avtrix/Projects/photography-portfolio"
 OUTPUT_PATH = os.path.join(PROJECT_ROOT, "js", "portfolio-media.js")
 DEFAULT_ROOT_FOLDER = "Portfolio Images"
 ALLOWED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".avif"}
+DEFAULT_CLOUDINARY_CLOUD_NAME = "dtjbyme7m"
+DEFAULT_CLOUDINARY_API_KEY = "823296335825829"
+DEFAULT_CLOUDINARY_API_SECRET = "tsviJ4HqnHAOn-ukrN6IwWdFrAg"
 
 
 def slugify(value):
@@ -236,15 +239,15 @@ def write_manifest(manifest):
 
 
 def main():
-    cloud_name = os.environ.get("CLOUDINARY_CLOUD_NAME")
-    api_key = os.environ.get("CLOUDINARY_API_KEY")
-    api_secret = os.environ.get("CLOUDINARY_API_SECRET")
+    cloud_name = os.environ.get("CLOUDINARY_CLOUD_NAME", DEFAULT_CLOUDINARY_CLOUD_NAME)
+    api_key = os.environ.get("CLOUDINARY_API_KEY", DEFAULT_CLOUDINARY_API_KEY)
+    api_secret = os.environ.get("CLOUDINARY_API_SECRET", DEFAULT_CLOUDINARY_API_SECRET)
     root_folder = os.environ.get("CLOUDINARY_PORTFOLIO_ROOT", DEFAULT_ROOT_FOLDER)
     debug = os.environ.get("CLOUDINARY_DEBUG") == "1"
 
     if not cloud_name or not api_key or not api_secret:
         print(
-            "Missing Cloudinary credentials. Set CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, and CLOUDINARY_API_SECRET.",
+            "Missing Cloudinary credentials. Update the built-in defaults or set CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, and CLOUDINARY_API_SECRET.",
             file=sys.stderr,
         )
         return 1
