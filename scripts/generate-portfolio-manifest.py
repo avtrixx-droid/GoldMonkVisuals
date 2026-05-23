@@ -14,12 +14,26 @@ PROJECT_ROOT = "/Users/avtrix/Projects/photography-portfolio"
 OUTPUT_PATH = os.path.join(PROJECT_ROOT, "js", "portfolio-media.js")
 DEFAULT_ROOT_FOLDER = "Portfolio Images"
 ALLOWED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".avif"}
+DEFAULT_CLOUDINARY_CLOUD_NAME = "dtjbyme7m"
+DEFAULT_CLOUDINARY_API_KEY = "823296335825829"
+DEFAULT_CLOUDINARY_API_SECRET = "tsviJ4HqnHAOn-ukrN6IwWdFrAg"
 
 
 def slugify(value):
     lowered = value.strip().lower()
     normalized = re.sub(r"[^a-z0-9]+", "-", lowered)
     return normalized.strip("-") or "portfolio-section"
+
+
+def strip_order_prefix(name):
+    """Remove a leading numeric ordering prefix from a folder name.
+
+    Examples:
+        "01 DY Patil T20 League" -> "DY Patil T20 League"
+        "12 IPL 2024"            -> "IPL 2024"
+        "Cricket"                -> "Cricket"  (unchanged – no prefix)
+    """
+    return re.sub(r"^\d+\s+", "", name)
 
 
 def build_request(url, api_key, api_secret, method="GET", payload=None):
@@ -149,7 +163,19 @@ def filter_resources(resources):
     return valid_resources
 
 
-def build_sections_from_assets(root_folder, resources):
+DEFAULT_SPORT_NAME = "Cricket"
+
+
+def build_sport_groups_from_assets(root_folder, resources):
+    """Group Cloudinary assets into sport -> tournament sections.
+
+    Expected Cloudinary layout (two-level):
+        <root_folder>/<Sport>/<Tournament>/<image>
+
+    Fallback (single-level, legacy layout):
+        <root_folder>/<Tournament>/<image>
+    These are placed under DEFAULT_SPORT_NAME so the front-end keeps rendering.
+    """
     grouped = {}
     prefix = f"{root_folder}/"
 
@@ -163,27 +189,46 @@ def build_sections_from_assets(root_folder, resources):
         if not remainder:
             continue
 
-        section_name = remainder.split("/", 1)[0]
-        grouped.setdefault(section_name, []).append(item)
+        parts = remainder.split("/")
 
-    sections = []
+        if len(parts) >= 2:
+            sport_name = parts[0]
+            tournament_name = parts[1]
+        else:
+            sport_name = DEFAULT_SPORT_NAME
+            tournament_name = parts[0]
 
-    for title in sorted(grouped.keys(), key=lambda value: value.lower()):
-        images = [
-            {
-                "public_id": item["public_id"],
-                "alt": f"GoldMonkVisuals sports portfolio image from {title}",
-            }
-            for item in sorted(grouped[title], key=lambda asset: asset.get("public_id", ""))
-        ]
+        grouped.setdefault(sport_name, {}).setdefault(tournament_name, []).append(item)
 
-        sections.append({
-            "title": title,
-            "slug": slugify(title),
-            "images": images,
+    sports = []
+
+    for sport_name in sorted(grouped.keys(), key=lambda value: value.lower()):
+        tournaments = grouped[sport_name]
+        sections = []
+
+        for tournament_name in sorted(tournaments.keys(), key=lambda value: value.lower()):
+            display_tournament_name = strip_order_prefix(tournament_name)
+            images = [
+                {
+                    "public_id": item["public_id"],
+                    "alt": f"GoldMonkVisuals {sport_name.lower()} photograph from {display_tournament_name}",
+                }
+                for item in sorted(tournaments[tournament_name], key=lambda asset: asset.get("public_id", ""))
+            ]
+
+            sections.append({
+                "title": display_tournament_name,
+                "slug": slugify(f"{sport_name}-{tournament_name}"),
+                "images": images,
+            })
+
+        sports.append({
+            "name": sport_name,
+            "slug": slugify(sport_name),
+            "sections": sections,
         })
 
-    return sections
+    return sports
 
 
 def build_cloudinary_url(cloud_name, public_id, width):
@@ -191,12 +236,15 @@ def build_cloudinary_url(cloud_name, public_id, width):
     return f"https://res.cloudinary.com/{cloud_name}/image/upload/f_auto,q_auto,w_{width}/{encoded_public_id}"
 
 
-def build_manifest(cloud_name, sections):
+def build_manifest(cloud_name, sports):
     first_image = None
 
-    for section in sections:
-        if section["images"]:
-            first_image = section["images"][0]
+    for sport in sports:
+        for section in sport["sections"]:
+            if section["images"]:
+                first_image = section["images"][0]
+                break
+        if first_image:
             break
 
     hero_src = build_cloudinary_url(cloud_name, first_image["public_id"], 1800) if first_image else "images/Portfolio/Sports/GOLD0062.jpg"
@@ -206,21 +254,33 @@ def build_manifest(cloud_name, sections):
             "src": hero_src,
             "alt": "GoldMonkVisuals sports portfolio hero image",
         },
-        "sections": [],
+        "sports": [],
+        "sections": [],  # Flattened view kept for backwards compatibility
     }
 
-    for section in sections:
-        manifest["sections"].append({
-            "title": section["title"],
-            "slug": section["slug"],
-            "images": [
-                {
-                    "src": build_cloudinary_url(cloud_name, image["public_id"], 1600),
-                    "alt": image["alt"],
-                }
-                for image in section["images"]
-            ],
-        })
+    for sport in sports:
+        sport_entry = {
+            "name": sport["name"],
+            "slug": sport["slug"],
+            "sections": [],
+        }
+
+        for section in sport["sections"]:
+            built_section = {
+                "title": section["title"],
+                "slug": section["slug"],
+                "images": [
+                    {
+                        "src": build_cloudinary_url(cloud_name, image["public_id"], 1600),
+                        "alt": image["alt"],
+                    }
+                    for image in section["images"]
+                ],
+            }
+            sport_entry["sections"].append(built_section)
+            manifest["sections"].append({**built_section, "sport": sport["name"]})
+
+        manifest["sports"].append(sport_entry)
 
     return manifest
 
@@ -236,15 +296,15 @@ def write_manifest(manifest):
 
 
 def main():
-    cloud_name = os.environ.get("CLOUDINARY_CLOUD_NAME")
-    api_key = os.environ.get("CLOUDINARY_API_KEY")
-    api_secret = os.environ.get("CLOUDINARY_API_SECRET")
+    cloud_name = os.environ.get("CLOUDINARY_CLOUD_NAME", DEFAULT_CLOUDINARY_CLOUD_NAME)
+    api_key = os.environ.get("CLOUDINARY_API_KEY", DEFAULT_CLOUDINARY_API_KEY)
+    api_secret = os.environ.get("CLOUDINARY_API_SECRET", DEFAULT_CLOUDINARY_API_SECRET)
     root_folder = os.environ.get("CLOUDINARY_PORTFOLIO_ROOT", DEFAULT_ROOT_FOLDER)
     debug = os.environ.get("CLOUDINARY_DEBUG") == "1"
 
     if not cloud_name or not api_key or not api_secret:
         print(
-            "Missing Cloudinary credentials. Set CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, and CLOUDINARY_API_SECRET.",
+            "Missing Cloudinary credentials. Update the built-in defaults or set CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, and CLOUDINARY_API_SECRET.",
             file=sys.stderr,
         )
         return 1
@@ -266,12 +326,19 @@ def main():
                 print("Sample asset folders from Cloudinary:")
                 for item in all_assets[:20]:
                     print(f"  {item.get('asset_folder') or '[no asset_folder]'} -> {item.get('public_id')}")
-        sections = build_sections_from_assets(root_folder, all_assets)
+        sports = build_sport_groups_from_assets(root_folder, all_assets)
 
-        manifest = build_manifest(cloud_name, sections)
+        manifest = build_manifest(cloud_name, sports)
         write_manifest(manifest)
-        non_empty = [section for section in sections if section["images"]]
-        print(f"Generated portfolio manifest with {len(non_empty)} populated section(s).")
+        populated_sections = sum(
+            1
+            for sport in sports
+            for section in sport["sections"]
+            if section["images"]
+        )
+        print(
+            f"Generated portfolio manifest with {len(sports)} sport group(s) and {populated_sections} populated tournament section(s)."
+        )
         return 0
     except urllib.error.HTTPError as error:
         detail = error.read().decode("utf-8", errors="replace")

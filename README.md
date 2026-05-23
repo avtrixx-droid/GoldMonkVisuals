@@ -73,8 +73,8 @@ Generate that file automatically from Cloudinary with:
 ```bash
 cd /Users/avtrix/Projects/photography-portfolio
 export CLOUDINARY_CLOUD_NAME="dtjbyme7m"
-export CLOUDINARY_API_KEY="your_api_key"
-export CLOUDINARY_API_SECRET="your_api_secret"
+export CLOUDINARY_API_KEY="823296335825829"
+export CLOUDINARY_API_SECRET="tsviJ4HqnHAOn-ukrN6IwWdFrAg"
 python3 scripts/generate-portfolio-manifest.py
 ```
 

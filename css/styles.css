@@ -30,8 +30,10 @@ body {
   margin: 0;
   font-family: "Manrope", sans-serif;
   color: var(--text);
-  background: #ffffff;
+  background: #fefcf9;
   line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 img {
@@ -59,9 +61,11 @@ textarea {
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgba(247, 250, 251, 0.94);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--line);
+  background: rgba(254, 252, 249, 0.88);
+  backdrop-filter: blur(22px) saturate(1.5);
+  -webkit-backdrop-filter: blur(22px) saturate(1.5);
+  border-bottom: 1px solid rgba(168, 128, 18, 0.1);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9), 0 4px 20px rgba(22, 18, 14, 0.05);
 }
 
 .header-stack {
@@ -103,9 +107,10 @@ textarea {
 }
 
 .brand-divider {
-  width: 7rem;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  width: 10rem;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--accent), var(--brand-gold), var(--accent), transparent);
+  opacity: 0.65;
 }
 
 .site-nav {
@@ -119,7 +124,9 @@ textarea {
 .site-nav > a {
   position: relative;
   color: var(--text);
-  font-size: 0.96rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
 }
 
 .site-nav > a::after {
@@ -251,17 +258,118 @@ textarea {
 
 .portfolio-grid-item {
   margin: 0;
-  display: block;
+  display: grid;
+  place-items: center;
   width: 100%;
+  position: relative;
+  padding: 0.85rem;
   appearance: none;
   -webkit-appearance: none;
+  border: 1px solid rgba(23, 20, 17, 0.06);
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(247, 245, 241, 0.96));
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background-color 220ms ease;
+}
+
+.portfolio-grid-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--portfolio-card-image);
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.14);
+  filter: blur(28px) saturate(1.05);
+  opacity: 0;
+  transition: opacity 260ms ease;
+  pointer-events: none;
+}
+
+.portfolio-grid-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.26), transparent 52%);
+  opacity: 0;
+  transition: opacity 260ms ease, transform 420ms ease;
+  pointer-events: none;
+  transform: scale(0.96);
+}
+
+.portfolio-grid-item > span {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.portfolio-grid-item > span::before {
+  content: "";
+  position: absolute;
+  inset: -18%;
+  background: linear-gradient(120deg, transparent 18%, rgba(255, 255, 255, 0.08) 42%, rgba(255, 255, 255, 0.42) 50%, rgba(255, 255, 255, 0.08) 58%, transparent 82%);
+  transform: translateX(-82%) skewX(-14deg);
+  opacity: 0;
+  transition: transform 640ms cubic-bezier(0.22, 0.61, 0.36, 1), opacity 260ms ease;
+}
+
+.portfolio-grid-item.is-landscape {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.1));
+  border-color: rgba(255, 255, 255, 0.34);
+}
+
+.portfolio-grid-item.is-landscape::before {
+  opacity: 1;
 }
 
 .portfolio-grid-item img {
   width: 100%;
-  aspect-ratio: 1 / 1.05;
+  height: min(38rem, 72vh);
+  aspect-ratio: auto;
   object-fit: cover;
-  border-radius: 22px;
+  object-position: center;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  transform-origin: center center;
+  transition: transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1), filter 320ms ease;
+  position: relative;
+  z-index: 1;
+}
+
+.portfolio-grid-item.is-portrait img {
+  object-fit: cover;
+  background: transparent;
+}
+
+.portfolio-grid-item.is-landscape img {
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.portfolio-grid-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 28px 52px rgba(22, 18, 14, 0.14);
+  border-color: rgba(183, 138, 87, 0.22);
+}
+
+.portfolio-grid-item:hover::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.portfolio-grid-item:hover::before {
+  opacity: 1;
+}
+
+.portfolio-grid-item:hover img {
+  transform: scale(1.1);
+  filter: saturate(1.1) contrast(1.03);
+}
+
+.portfolio-grid-item:hover > span::before {
+  transform: translateX(82%) skewX(-14deg);
+  opacity: 1;
 }
 
 .page-hero-content {
@@ -272,8 +380,9 @@ textarea {
   margin: 0 0 0.75rem;
   color: var(--accent-deep);
   text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  font-size: 0.74rem;
+  font-weight: 600;
 }
 
 h1,
@@ -342,7 +451,10 @@ h3 {
   background: var(--accent);
   color: #fff;
   font-weight: 600;
-  transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  box-shadow: 0 4px 14px rgba(22, 18, 14, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: transform 200ms ease, background-color 200ms ease, box-shadow 200ms ease;
 }
 
 .button-soft {
@@ -359,16 +471,19 @@ h3 {
 .image-slider {
   overflow: hidden;
   border-radius: calc(var(--radius) + 2px);
-  box-shadow: var(--shadow);
-  border: 1px solid rgba(23, 20, 17, 0.05);
-  background: var(--surface);
+  box-shadow:
+    0 32px 72px rgba(22, 18, 14, 0.12),
+    0 8px 24px rgba(22, 18, 14, 0.07),
+    inset 0 2px 0 rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(23, 20, 17, 0.07);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(247, 245, 241, 0.98));
 }
 
 .slider-track {
   display: flex;
   gap: 1rem;
-  padding: 1rem;
-  transition: transform 900ms ease;
+  padding: 1.1rem;
+  transition: transform 1000ms cubic-bezier(0.76, 0, 0.24, 1);
   will-change: transform;
 }
 
@@ -387,6 +502,19 @@ h3 {
   object-fit: cover;
   object-position: center 28%;
   border-radius: 18px;
+  box-shadow:
+    0 12px 32px rgba(22, 18, 14, 0.16),
+    0 2px 8px rgba(22, 18, 14, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  transition: transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1), filter 320ms ease, box-shadow 320ms ease;
+}
+
+.slide-card:hover img {
+  transform: scale(1.025);
+  filter: saturate(1.1) contrast(1.03);
+  box-shadow:
+    0 20px 48px rgba(22, 18, 14, 0.2),
+    0 4px 12px rgba(22, 18, 14, 0.1);
 }
 
 .profile-layout,
@@ -421,17 +549,90 @@ h3 {
 }
 
 .portrait-card img {
+  box-shadow:
+    0 32px 72px rgba(22, 18, 14, 0.18),
+    0 8px 24px rgba(22, 18, 14, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.portrait-card img {
   aspect-ratio: 4 / 5;
 }
 
 .profile-card {
-  background: linear-gradient(180deg, rgba(255, 216, 49, 1), rgba(255, 249, 228, 0.98));
-  border-color: var(--brand-gold-line);
+  background: linear-gradient(
+    150deg,
+    #ffe259 0%,
+    #ffd831 14%,
+    #ffe566 32%,
+    #fff4b8 60%,
+    #fffae8 82%,
+    #ffffff 100%
+  );
+  border-color: rgba(168, 128, 18, 0.32);
+  box-shadow:
+    0 32px 72px rgba(22, 18, 14, 0.14),
+    0 6px 18px rgba(22, 18, 14, 0.07),
+    inset 0 2px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 0 rgba(168, 128, 18, 0.18);
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.52) 0%, rgba(255, 255, 255, 0) 100%);
+  border-radius: var(--radius) var(--radius) 0 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.profile-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .inquiry-copy {
-  background: linear-gradient(180deg, rgba(255, 216, 49, 1), rgba(255, 249, 228, 0.98));
-  border-color: var(--brand-gold-line);
+  background: linear-gradient(
+    150deg,
+    #ffe259 0%,
+    #ffd831 14%,
+    #ffe566 32%,
+    #fff4b8 60%,
+    #fffae8 82%,
+    #ffffff 100%
+  );
+  border-color: rgba(168, 128, 18, 0.32);
+  box-shadow:
+    0 32px 72px rgba(22, 18, 14, 0.14),
+    0 6px 18px rgba(22, 18, 14, 0.07),
+    inset 0 2px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 0 rgba(168, 128, 18, 0.18);
+  position: relative;
+  overflow: hidden;
+}
+
+.inquiry-copy::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.52) 0%, rgba(255, 255, 255, 0) 100%);
+  border-radius: var(--radius) var(--radius) 0 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.inquiry-copy > * {
+  position: relative;
+  z-index: 1;
 }
 
 .detail-grid {
@@ -464,8 +665,19 @@ h3 {
   display: grid;
   gap: 1rem;
   padding: 2.2rem;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.99), rgba(249, 247, 243, 0.98));
-  border-color: rgba(183, 138, 87, 0.12);
+  background: linear-gradient(
+    150deg,
+    #ffffff 0%,
+    #fefefe 30%,
+    #faf8f5 65%,
+    #f5f3ef 100%
+  );
+  border-color: rgba(183, 138, 87, 0.2);
+  box-shadow:
+    0 32px 72px rgba(22, 18, 14, 0.12),
+    0 6px 18px rgba(22, 18, 14, 0.06),
+    inset 0 2px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 0 rgba(183, 138, 87, 0.08);
 }
 
 .form-field {
@@ -488,13 +700,15 @@ h3 {
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 1rem 1.05rem;
-  border-radius: 18px;
-  border: 1px solid rgba(23, 20, 17, 0.09);
-  background: #ffffff;
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  border: 1.5px solid rgba(23, 20, 17, 0.08);
+  background: rgba(255, 255, 255, 0.92);
   color: var(--text);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
-  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  box-shadow:
+    inset 0 1px 3px rgba(22, 18, 14, 0.04),
+    0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: border-color 200ms ease, box-shadow 200ms ease, background 200ms ease;
 }
 
 .contact-form input::placeholder,
@@ -505,8 +719,11 @@ h3 {
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
-  border-color: rgba(183, 138, 87, 0.45);
-  box-shadow: 0 0 0 4px rgba(183, 138, 87, 0.12);
+  border-color: rgba(183, 138, 87, 0.5);
+  background: #ffffff;
+  box-shadow:
+    0 0 0 4px rgba(183, 138, 87, 0.1),
+    inset 0 1px 3px rgba(22, 18, 14, 0.02);
 }
 
 .contact-form textarea {
@@ -517,14 +734,39 @@ h3 {
 .submit-button {
   width: 100%;
   margin-top: 0.4rem;
-  background: linear-gradient(135deg, #ffd831, #f1cb3c);
-  border-color: rgba(168, 128, 18, 0.22);
-  color: #2a2316;
-  box-shadow: 0 16px 30px rgba(241, 203, 60, 0.28);
+  background: linear-gradient(150deg, #ffe259 0%, #ffd831 35%, #f4c800 65%, #e8bc00 100%);
+  border-color: rgba(168, 128, 18, 0.3);
+  color: #1a1500;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 8px 28px rgba(241, 203, 60, 0.4),
+    0 2px 8px rgba(241, 203, 60, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
+}
+
+.submit-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.3), transparent);
+  border-radius: inherit;
+  pointer-events: none;
 }
 
 .submit-button:hover {
-  background: linear-gradient(135deg, #ffde49, #f4d13f);
+  background: linear-gradient(150deg, #ffe566 0%, #ffd831 35%, #f7cc00 65%, #ebbb00 100%);
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 36px rgba(241, 203, 60, 0.52),
+    0 4px 12px rgba(241, 203, 60, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
 
 .lightbox {
@@ -535,10 +777,12 @@ h3 {
   align-items: center;
   gap: 1rem;
   padding: 1.5rem;
-  background: rgba(14, 11, 8, 0.92);
+  background: rgba(10, 8, 5, 0.94);
+  backdrop-filter: blur(24px) saturate(0.7);
+  -webkit-backdrop-filter: blur(24px) saturate(0.7);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 180ms ease;
+  transition: opacity 240ms ease;
   z-index: 60;
 }
 
@@ -567,13 +811,22 @@ h3 {
 
 .lightbox-close,
 .lightbox-nav {
-  border: 0;
-  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
   color: #fff;
   border-radius: 999px;
   width: 3rem;
   height: 3rem;
   cursor: pointer;
+  transition: background 200ms ease, transform 200ms ease, border-color 200ms ease;
+}
+
+.lightbox-close:hover,
+.lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.26);
+  transform: scale(1.08);
 }
 
 .lightbox-close {
@@ -589,9 +842,35 @@ h3 {
 .footer-panel {
   padding: 1.35rem 1.35rem 1rem;
   border-radius: 32px;
-  background: linear-gradient(180deg, rgba(255, 216, 49, 0.96), rgba(255, 244, 186, 0.98));
-  border: 1px solid rgba(168, 128, 18, 0.2);
-  box-shadow: var(--shadow);
+  background: linear-gradient(
+    150deg,
+    #ffe259 0%,
+    #ffd831 15%,
+    #ffe566 30%,
+    #fff4b8 58%,
+    #fffae8 80%,
+    #fffdf5 100%
+  );
+  border: 1px solid rgba(168, 128, 18, 0.26);
+  box-shadow:
+    0 32px 72px rgba(22, 18, 14, 0.12),
+    0 8px 24px rgba(22, 18, 14, 0.06),
+    inset 0 2px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 0 rgba(168, 128, 18, 0.14);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 42%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, transparent 100%);
+  border-radius: 32px 32px 0 0;
+  pointer-events: none;
 }
 
 .footer-top {
@@ -614,12 +893,13 @@ h3 {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   align-items: stretch;
-  gap: 0;
+  gap: 3px;
   overflow: hidden;
   margin-bottom: 1rem;
   max-width: 880px;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 16px;
 }
 
 .footer-gallery img {
@@ -627,6 +907,14 @@ h3 {
   height: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+  transition: transform 380ms cubic-bezier(0.2, 0.8, 0.2, 1), filter 280ms ease;
+}
+
+.footer-gallery img:hover {
+  transform: scale(1.07);
+  filter: saturate(1.12) contrast(1.04);
+  z-index: 1;
+  position: relative;
 }
 
 @media (min-width: 761px) and (max-width: 1440px) {
@@ -640,6 +928,14 @@ h3 {
   .portrait-card img,
   .gallery-item img {
     aspect-ratio: auto;
+  }
+
+  .portfolio-grid-item img {
+    height: min(700px, 72vh);
+  }
+
+  .portfolio-grid-item.is-landscape img {
+    object-fit: contain;
   }
 }
 
@@ -673,17 +969,21 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1.9rem;
-  height: 1.9rem;
-  color: #2f2f2f;
+  width: 2.1rem;
+  height: 2.1rem;
+  color: #2a2a2a;
   font-size: 0.66rem;
   font-weight: 700;
   letter-spacing: 0.08em;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.38);
+  border: 1px solid rgba(168, 128, 18, 0.2);
+  transition: background 200ms ease, border-color 200ms ease, transform 200ms ease, color 200ms ease;
 }
 
 .footer-social svg {
-  width: 1rem;
-  height: 1rem;
+  width: 1.05rem;
+  height: 1.05rem;
   fill: none;
   stroke: currentColor;
   stroke-width: 1.8;
@@ -693,17 +993,166 @@ h3 {
 
 .footer-backtotop {
   font-size: 1rem;
+  border-radius: 50%;
 }
 
 .footer-social:hover,
 .footer-backtotop:hover {
-  color: #1e1e1e;
+  color: #111111;
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(168, 128, 18, 0.4);
+  transform: translateY(-2px);
+}
+
+.slider-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.1rem;
+  padding: 0 0.25rem;
+}
+
+.slider-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.slider-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(22, 18, 14, 0.18);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 260ms ease, width 260ms cubic-bezier(0.22, 0.61, 0.36, 1), opacity 260ms ease;
+}
+
+.slider-dot.is-active {
+  width: 22px;
+  background: var(--accent);
+}
+
+.slider-portfolio-cta {
+  font-size: 0.82rem;
+  min-height: 2.4rem;
+  padding: 0.5rem 1.1rem;
+  letter-spacing: 0.06em;
+  border-color: rgba(22, 18, 14, 0.14);
+  color: var(--muted);
+  transition: transform 200ms ease, border-color 200ms ease, color 200ms ease;
+}
+
+.slider-portfolio-cta:hover {
+  border-color: var(--accent);
+  color: var(--accent-deep);
+  transform: translateY(-2px);
+}
+
+.form-success[hidden] {
+  display: none;
+}
+
+.form-success {
+  background: linear-gradient(
+    150deg,
+    #ffe259 0%,
+    #ffd831 14%,
+    #ffe566 32%,
+    #fff4b8 60%,
+    #fffae8 82%,
+    #ffffff 100%
+  );
+  border: 1px solid rgba(168, 128, 18, 0.32);
+  border-radius: var(--radius);
+  padding: 2.5rem 2rem;
+  box-shadow:
+    0 32px 72px rgba(22, 18, 14, 0.14),
+    0 6px 18px rgba(22, 18, 14, 0.07),
+    inset 0 2px 0 rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.6rem;
+  animation: successFadeIn 500ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.form-success p:last-child {
+  color: var(--muted);
+  margin: 0;
+  font-size: 0.96rem;
+}
+
+@keyframes successFadeIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.tournaments-section {
+  padding-top: 0;
+  padding-bottom: 3.5rem;
+}
+
+.tournaments-eyebrow {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.tournament-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.tournament-logo-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.6rem 2.4rem;
+  border-radius: 22px;
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.28) 0%, rgba(250, 248, 245, 0.22) 60%, rgba(243, 241, 237, 0.18) 100%);
+  border: 1px solid rgba(183, 138, 87, 0.14);
+  backdrop-filter: blur(8px);
+  box-shadow:
+    0 16px 40px rgba(22, 18, 14, 0.06),
+    0 4px 12px rgba(22, 18, 14, 0.04),
+    inset 0 2px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -1px 0 rgba(183, 138, 87, 0.05);
+  transition: transform 240ms ease, box-shadow 240ms ease;
+}
+
+.tournament-logo-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 24px 52px rgba(22, 18, 14, 0.12),
+    0 6px 16px rgba(22, 18, 14, 0.07),
+    inset 0 2px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 0 rgba(183, 138, 87, 0.08);
+}
+
+.tournament-logo-card img {
+  height: 7rem;
+  width: auto;
+  max-width: 16rem;
+  object-fit: contain;
+  filter: grayscale(18%) contrast(1.04);
+  opacity: 0.82;
+  transition: filter 240ms ease, opacity 240ms ease;
+}
+
+.tournament-logo-card:hover img {
+  filter: grayscale(0%) contrast(1.06);
+  opacity: 1;
 }
 
 .fade-in {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 500ms ease, transform 500ms ease;
+  transform: translateY(20px);
+  transition: opacity 700ms cubic-bezier(0.22, 0.61, 0.36, 1), transform 700ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 .fade-in.is-visible {
@@ -830,8 +1279,13 @@ body.lightbox-open {
     width: calc(100% - 1.4rem);
     margin: -8rem 0 0 auto;
     z-index: 1;
-    background: linear-gradient(180deg, rgba(255, 216, 49, 1), rgba(255, 249, 228, 0.72));
-    backdrop-filter: blur(8px);
+    background: linear-gradient(150deg, #ffe259 0%, #ffd831 14%, #fff4b8 55%, rgba(255, 249, 228, 0.85) 100%);
+    backdrop-filter: blur(12px);
+    box-shadow:
+      0 24px 56px rgba(22, 18, 14, 0.18),
+      0 4px 14px rgba(22, 18, 14, 0.1),
+      inset 0 2px 0 rgba(255, 255, 255, 0.9),
+      inset 0 -1px 0 rgba(168, 128, 18, 0.16);
   }
 
   .portfolio-hero-card {
@@ -853,10 +1307,28 @@ body.lightbox-open {
   .portfolio-grid-item img {
     display: block;
     width: 100%;
-    aspect-ratio: 4 / 5;
-    height: 24rem;
+    aspect-ratio: auto;
+    height: min(24rem, 62vh);
     object-fit: cover;
-    object-position: center 22%;
+    object-position: center;
+  }
+
+  .portfolio-grid-item.is-landscape img {
+    object-fit: contain;
+  }
+
+  .tournament-logos {
+    gap: 1.25rem;
+  }
+
+  .tournament-logo-card {
+    padding: 1.2rem 1.6rem;
+    width: 100%;
+    max-width: 20rem;
+  }
+
+  .tournament-logo-card img {
+    height: 5.5rem;
   }
 
   .masonry-grid {
@@ -886,3 +1358,1216 @@ body.lightbox-open {
     gap: 0.75rem;
   }
 }
+
+/* ============================================================
+   Site-wide dark editorial theme (scoped to body.theme-dark)
+   Mirrors GoldMonkVisuals_Portfolio_Enhanced.html sample design.
+   Applied to BOTH index.html and portfolio.html via the body class.
+   ------------------------------------------------------------
+   Section A — Tokens + portfolio page (.portfolio-v2-* element classes)
+   Section B — Home page overrides (header, slider, about, form, footer)
+   ============================================================ */
+
+body.theme-dark {
+  --pv2-bg: #0a0a0a;
+  --pv2-surface: #111111;
+  --pv2-surface-2: #161616;
+  --pv2-border: rgba(255, 255, 255, 0.08);
+  --pv2-border-strong: rgba(255, 255, 255, 0.18);
+  --pv2-gold: #c9a84c;
+  --pv2-gold-light: #e2c97e;
+  --pv2-text: #f1ece2;
+  --pv2-text-muted: #8b8780;
+  --pv2-nav-height: 92px;
+  background: var(--pv2-bg);
+  color: var(--pv2-text);
+}
+
+body.theme-dark a {
+  color: inherit;
+}
+
+/* ----------------------------------------------------------
+   Unified dark site header — brand left, nav right (mirrors
+   the sample's horizontal nav bar). Applies to BOTH index.html
+   and portfolio.html since they now share the same HTML.
+   ---------------------------------------------------------- */
+body.theme-dark .site-header {
+  background: rgba(10, 10, 10, 0.92);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  border-bottom: 1px solid var(--pv2-border);
+  box-shadow: none;
+}
+
+body.theme-dark .header-stack {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 0;
+}
+
+body.theme-dark .brand-lockup {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+body.theme-dark .brand-logo {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+body.theme-dark .brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+  gap: 1px;
+}
+
+body.theme-dark .brand-name {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  color: var(--pv2-text);
+}
+
+body.theme-dark .brand-kicker {
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--pv2-gold);
+}
+
+body.theme-dark .brand-divider {
+  display: none;
+}
+
+body.theme-dark .site-nav {
+  gap: 2rem;
+}
+
+body.theme-dark .site-nav > a {
+  color: var(--pv2-text-muted);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 180ms ease;
+}
+
+body.theme-dark .site-nav > a::after {
+  background: var(--pv2-gold);
+}
+
+body.theme-dark .site-nav > a:hover,
+body.theme-dark .site-nav > a.active {
+  color: var(--pv2-gold);
+}
+
+body.theme-dark .nav-toggle {
+  position: static;
+  top: auto;
+  right: auto;
+}
+
+body.theme-dark .nav-toggle span {
+  background: var(--pv2-text);
+}
+
+/* Hero */
+body.theme-dark .portfolio-v2-hero {
+  position: relative;
+  width: 100%;
+  height: clamp(420px, 62vh, 620px);
+  overflow: hidden;
+  padding: 0;
+  border-radius: 0;
+  background: #0a0a0a;
+}
+
+body.theme-dark .portfolio-v2-hero__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 32%;
+}
+
+body.theme-dark .portfolio-v2-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 10, 0.25) 0%,
+    rgba(10, 10, 10, 0.55) 60%,
+    rgba(10, 10, 10, 0.92) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  padding: 2rem 1.25rem 3.5rem;
+}
+
+body.theme-dark .portfolio-v2-hero__label {
+  margin: 0 0 0.85rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--pv2-gold);
+}
+
+body.theme-dark .portfolio-v2-hero__title {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  font-size: clamp(2.1rem, 5vw, 3.6rem);
+  line-height: 1.1;
+  color: var(--pv2-text);
+  margin: 0;
+  max-width: 36rem;
+  letter-spacing: 0.01em;
+}
+
+body.theme-dark .portfolio-v2-hero__sub {
+  margin: 1rem auto 0;
+  max-width: 32rem;
+  color: rgba(241, 236, 226, 0.78);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+/* Intro bar */
+body.theme-dark .portfolio-v2-intro {
+  background: var(--pv2-bg);
+  border-bottom: 1px solid var(--pv2-border);
+}
+
+body.theme-dark .portfolio-v2-intro__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2.5rem 0 2rem;
+  flex-wrap: wrap;
+}
+
+body.theme-dark .portfolio-v2-intro__copy {
+  max-width: 38rem;
+}
+
+body.theme-dark .portfolio-v2-intro__copy .eyebrow {
+  color: var(--pv2-gold);
+  letter-spacing: 0.28em;
+  font-size: 0.68rem;
+  margin: 0 0 0.4rem;
+}
+
+body.theme-dark .portfolio-v2-intro__copy p {
+  margin: 0;
+  color: var(--pv2-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+body.theme-dark .portfolio-v2-intro__pills {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.6rem;
+}
+
+body.theme-dark .portfolio-v2-intro__pills li {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--pv2-gold-light);
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--pv2-border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Sport nav (dynamically populated) */
+body.theme-dark .portfolio-v2-sport-nav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(10, 10, 10, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--pv2-border);
+}
+
+body.theme-dark .portfolio-v2-sport-nav__track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 0;
+  flex-wrap: wrap;
+  min-height: 1rem;
+}
+
+body.theme-dark .sport-nav-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  padding: 0.6rem 1.1rem;
+  border: 1px solid var(--pv2-border-strong);
+  border-radius: 999px;
+  color: var(--pv2-text-muted);
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.02);
+  transition: color 180ms ease, border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+body.theme-dark .sport-nav-chip:hover {
+  color: var(--pv2-gold-light);
+  border-color: var(--pv2-gold);
+  transform: translateY(-1px);
+}
+
+body.theme-dark .sport-nav-chip.is-active {
+  color: var(--pv2-bg);
+  background: var(--pv2-gold);
+  border-color: var(--pv2-gold);
+}
+
+body.theme-dark .sport-nav-chip__label {
+  font-weight: 600;
+}
+
+body.theme-dark .sport-nav-chip__count {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  opacity: 0.7;
+}
+
+body.theme-dark .sport-nav-chip.is-active .sport-nav-chip__count {
+  color: rgba(10, 10, 10, 0.7);
+  opacity: 1;
+}
+
+/* Sport groups + tournament sections */
+body.theme-dark .portfolio-v2-gallery {
+  padding: 3rem 0 4.5rem;
+}
+
+body.theme-dark .portfolio-sport-group {
+  margin-top: 3.5rem;
+  scroll-margin-top: calc(var(--pv2-nav-height) + 70px);
+}
+
+body.theme-dark .portfolio-sport-group:first-child {
+  margin-top: 1rem;
+}
+
+body.theme-dark .portfolio-sport-header {
+  padding: 2rem 0 1.25rem;
+  border-bottom: 1px solid var(--pv2-border);
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+body.theme-dark .portfolio-sport-header .eyebrow {
+  color: var(--pv2-gold);
+  margin: 0 0 0.4rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+}
+
+body.theme-dark .portfolio-sport-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  color: var(--pv2-text);
+  margin: 0 0 0.3rem;
+}
+
+body.theme-dark .portfolio-sport-meta {
+  margin: 0;
+  color: var(--pv2-text-muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+}
+
+body.theme-dark .portfolio-gallery-block {
+  margin-top: 2.5rem;
+  scroll-margin-top: calc(var(--pv2-nav-height) + 70px);
+}
+
+body.theme-dark .portfolio-gallery-block:first-of-type {
+  margin-top: 1.5rem;
+}
+
+body.theme-dark .portfolio-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.1rem;
+}
+
+body.theme-dark .portfolio-section-heading .eyebrow {
+  color: var(--pv2-gold);
+  margin: 0 0 0.3rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+}
+
+body.theme-dark .portfolio-section-heading h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  color: var(--pv2-text);
+  margin: 0;
+  line-height: 1.15;
+}
+
+body.theme-dark .portfolio-section-count {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--pv2-text-muted);
+  white-space: nowrap;
+}
+
+/* Masonry grid — CSS multi-column, mirrors the sample */
+body.theme-dark .portfolio-grid {
+  display: block;
+  columns: 3;
+  column-gap: 12px;
+  margin-top: 1.25rem;
+  background: transparent;
+}
+
+/* Reset the production card chrome — flat masonry tiles */
+body.theme-dark .portfolio-grid-item {
+  display: block;
+  width: 100%;
+  margin: 0 0 12px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 240ms ease;
+}
+
+body.theme-dark .portfolio-grid-item::before,
+body.theme-dark .portfolio-grid-item::after,
+body.theme-dark .portfolio-grid-item > span:not(.portfolio-grid-item__caption) {
+  display: none !important;
+}
+
+body.theme-dark .portfolio-grid-item img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: initial;
+  background: #161616;
+  border-radius: 0;
+  box-shadow: none;
+  display: block;
+  transition: transform 480ms cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 320ms ease;
+}
+
+body.theme-dark .portfolio-grid-item:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+body.theme-dark .portfolio-grid-item:hover img {
+  transform: scale(1.04);
+  filter: saturate(1.05);
+}
+
+body.theme-dark .portfolio-grid-item__caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 2rem 1rem 0.85rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 240ms ease, transform 240ms ease;
+  pointer-events: none;
+}
+
+body.theme-dark .portfolio-grid-item:hover .portfolio-grid-item__caption,
+body.theme-dark .portfolio-grid-item:focus-visible .portfolio-grid-item__caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body.theme-dark .portfolio-grid-item__caption span {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--pv2-gold-light);
+}
+
+/* Pagination */
+body.theme-dark .portfolio-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+body.theme-dark .portfolio-load-more {
+  border: 1px solid var(--pv2-border-strong);
+  background: transparent;
+  color: var(--pv2-text);
+  border-radius: 999px;
+  padding: 0.85rem 1.8rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 180ms ease, color 180ms ease, background 180ms ease;
+  min-height: 0;
+}
+
+body.theme-dark .portfolio-load-more:hover {
+  border-color: var(--pv2-gold);
+  color: var(--pv2-gold);
+  background: rgba(201, 168, 76, 0.06);
+  transform: none;
+  box-shadow: none;
+}
+
+/* Tournaments covered strip */
+body.theme-dark .portfolio-v2-tournaments {
+  border-top: 1px solid var(--pv2-border);
+  border-bottom: 1px solid var(--pv2-border);
+  padding: 3rem 0;
+  text-align: center;
+  background: var(--pv2-bg);
+}
+
+body.theme-dark .portfolio-v2-tournaments__label {
+  margin: 0 0 1.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--pv2-text-muted);
+}
+
+body.theme-dark .portfolio-v2-tournaments__logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+body.theme-dark .portfolio-v2-tournaments__logos img {
+  height: 56px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  filter: grayscale(1) brightness(1.6);
+  opacity: 0.55;
+  transition: filter 240ms ease, opacity 240ms ease;
+}
+
+body.theme-dark .portfolio-v2-tournaments__logos img:hover {
+  filter: none;
+  opacity: 1;
+}
+
+/* CTA */
+body.theme-dark .portfolio-v2-cta {
+  position: relative;
+  overflow: hidden;
+  background: var(--pv2-surface);
+  border-bottom: 1px solid var(--pv2-border);
+}
+
+body.theme-dark .portfolio-v2-cta__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.12;
+  filter: grayscale(1);
+}
+
+body.theme-dark .portfolio-v2-cta__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 2rem;
+  padding: 4.5rem 0;
+}
+
+body.theme-dark .portfolio-v2-cta__eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--pv2-gold);
+}
+
+body.theme-dark .portfolio-v2-cta__title {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  font-size: clamp(1.9rem, 3.6vw, 2.7rem);
+  line-height: 1.15;
+  color: var(--pv2-text);
+  margin: 0 0 0.85rem;
+}
+
+body.theme-dark .portfolio-v2-cta__text {
+  margin: 0;
+  color: var(--pv2-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 30rem;
+}
+
+body.theme-dark .portfolio-v2-cta__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  flex-shrink: 0;
+}
+
+body.theme-dark .portfolio-v2-cta__primary,
+body.theme-dark .portfolio-v2-cta__secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 1rem 2.4rem;
+  border-radius: 999px;
+  transition: background 200ms ease, color 200ms ease, border-color 200ms ease, transform 180ms ease;
+  white-space: nowrap;
+}
+
+body.theme-dark .portfolio-v2-cta__primary {
+  background: var(--pv2-gold);
+  color: #0a0a0a;
+}
+
+body.theme-dark .portfolio-v2-cta__primary:hover {
+  background: var(--pv2-gold-light);
+  transform: translateY(-1px);
+}
+
+body.theme-dark .portfolio-v2-cta__secondary {
+  border: 1px solid var(--pv2-border-strong);
+  color: var(--pv2-text-muted);
+}
+
+body.theme-dark .portfolio-v2-cta__secondary:hover {
+  border-color: var(--pv2-gold);
+  color: var(--pv2-gold);
+}
+
+/* Lightbox tweak for dark theme */
+body.theme-dark .lightbox {
+  background: rgba(0, 0, 0, 0.96);
+}
+
+/* Footer (dark variant) */
+body.theme-dark .site-footer.portfolio-v2-footer {
+  padding: 0;
+  background: #050505;
+  border-top: 1px solid var(--pv2-border);
+}
+
+body.theme-dark .portfolio-v2-footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.75rem 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+body.theme-dark .portfolio-v2-footer__inner::before {
+  display: none;
+}
+
+body.theme-dark .portfolio-v2-footer__copy {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--pv2-text-muted);
+  letter-spacing: 0.08em;
+}
+
+body.theme-dark .portfolio-v2-footer__links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+body.theme-dark .portfolio-v2-footer__links a {
+  color: var(--pv2-text-muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+body.theme-dark .portfolio-v2-footer__links a:hover {
+  color: var(--pv2-gold);
+}
+
+/* Back-to-top button */
+body.theme-dark .portfolio-v2-backtop {
+  position: fixed;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  z-index: 35;
+  width: 42px;
+  height: 42px;
+  border-radius: 4px;
+  background: var(--pv2-surface-2);
+  border: 1px solid var(--pv2-border-strong);
+  color: var(--pv2-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: border-color 180ms ease, color 180ms ease, background 180ms ease;
+}
+
+body.theme-dark .portfolio-v2-backtop:hover {
+  border-color: var(--pv2-gold);
+  color: var(--pv2-gold);
+  background: rgba(201, 168, 76, 0.08);
+}
+
+/* Mobile menu surface for dark theme */
+@media (max-width: 760px) {
+  body.theme-dark .site-header .site-nav {
+    background: rgba(15, 15, 15, 0.98);
+    border-color: var(--pv2-border);
+  }
+}
+
+/* Responsive masonry breakpoints (match sample) */
+@media (max-width: 1100px) {
+  body.theme-dark .portfolio-grid {
+    columns: 2;
+  }
+}
+
+@media (max-width: 700px) {
+  body.theme-dark .portfolio-v2-cta__inner {
+    grid-template-columns: 1fr;
+    text-align: left;
+    padding: 3.5rem 0;
+  }
+
+  body.theme-dark .portfolio-v2-cta__actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 540px) {
+  body.theme-dark .portfolio-grid {
+    columns: 1;
+  }
+
+  body.theme-dark .portfolio-v2-hero {
+    height: clamp(360px, 70vh, 520px);
+  }
+
+  body.theme-dark .portfolio-v2-intro__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  body.theme-dark .portfolio-section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ============================================================
+   Section B — Home page (index.html) dark overrides
+   Re-skins the existing light-theme components (slider, profile
+   card, tournament strip, contact form, footer panel) to match
+   the portfolio's dark editorial palette. All selectors are
+   scoped under body.theme-dark so removing the class restores
+   the original light theme instantly.
+   ============================================================ */
+
+body.theme-dark {
+  background: var(--pv2-bg);
+  color: var(--pv2-text);
+}
+
+body.theme-dark img {
+  /* keep images vivid on dark backgrounds */
+  color-scheme: dark;
+}
+
+/* Header rules live in Section A (unified `body.theme-dark .site-header`).
+   The home page now uses the same horizontal nav bar as portfolio. */
+
+/* ---- Body text + headings ---- */
+body.theme-dark h1,
+body.theme-dark h2,
+body.theme-dark h3 {
+  color: var(--pv2-text);
+}
+
+body.theme-dark .eyebrow {
+  color: var(--pv2-gold);
+}
+
+body.theme-dark .section-copy,
+body.theme-dark .copy-card p,
+body.theme-dark .detail-card p,
+body.theme-dark .contact-form,
+body.theme-dark .footer-copy {
+  color: var(--pv2-text-muted);
+}
+
+/* ---- Home slider chrome ---- */
+body.theme-dark .image-slider {
+  background: linear-gradient(180deg, #141414, #0d0d0d);
+  border: 1px solid var(--pv2-border);
+  border-radius: 18px;
+  box-shadow:
+    0 32px 72px rgba(0, 0, 0, 0.5),
+    0 8px 24px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+body.theme-dark .slider-section {
+  padding-top: 2.25rem;
+  padding-bottom: 3rem;
+}
+
+body.theme-dark .slider-track {
+  padding: 0.6rem;
+  gap: 0.65rem;
+}
+
+body.theme-dark .slide-card img {
+  aspect-ratio: 4 / 5;
+  height: auto;
+  border-radius: 12px;
+  border-color: rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.5),
+    0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+/* Override the legacy 700px hard-height for the dark-themed slider.
+   Lets the image sit closer to the new compact header without dominating
+   the viewport. Portrait card + gallery-item are unaffected — they
+   match the original `.slide-card img` selector group but were only
+   targeted at light-theme proportions. */
+@media (min-width: 761px) and (max-width: 1440px) {
+  body.theme-dark .slide-card img {
+    height: clamp(360px, 48vh, 480px);
+    aspect-ratio: auto;
+  }
+}
+
+@media (max-width: 760px) {
+  body.theme-dark .slide-card img {
+    height: clamp(20rem, 60vh, 26rem);
+    max-height: 26rem;
+    aspect-ratio: auto;
+  }
+}
+
+body.theme-dark .slider-dot {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+body.theme-dark .slider-dot.is-active {
+  background: var(--pv2-gold);
+}
+
+body.theme-dark .button-soft {
+  background: transparent;
+  color: var(--pv2-text-muted);
+  border-color: var(--pv2-border-strong);
+}
+
+body.theme-dark .button-soft:hover {
+  border-color: var(--pv2-gold);
+  color: var(--pv2-gold);
+}
+
+body.theme-dark .slider-portfolio-cta {
+  border-color: var(--pv2-border-strong);
+  color: var(--pv2-text-muted);
+}
+
+body.theme-dark .slider-portfolio-cta:hover {
+  border-color: var(--pv2-gold);
+  color: var(--pv2-gold);
+}
+
+/* ---- Surface cards (about, inquiry, copy, detail) ---- */
+body.theme-dark .copy-card,
+body.theme-dark .detail-card,
+body.theme-dark .contact-form {
+  background: var(--pv2-surface);
+  border-color: var(--pv2-border);
+  box-shadow:
+    0 24px 56px rgba(0, 0, 0, 0.55),
+    0 4px 14px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  color: var(--pv2-text);
+}
+
+body.theme-dark .copy-card p,
+body.theme-dark .detail-card p {
+  color: rgba(241, 236, 226, 0.78);
+}
+
+/* Override the yellow gradient on profile + inquiry cards */
+body.theme-dark .profile-card,
+body.theme-dark .inquiry-copy {
+  background: linear-gradient(150deg, #1c1a14 0%, #15140f 55%, #0e0d0a 100%);
+  border-color: rgba(201, 168, 76, 0.22);
+  box-shadow:
+    0 32px 72px rgba(0, 0, 0, 0.55),
+    0 6px 18px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+body.theme-dark .profile-card::before,
+body.theme-dark .inquiry-copy::before {
+  background: linear-gradient(180deg, rgba(201, 168, 76, 0.08) 0%, transparent 100%);
+}
+
+body.theme-dark .portrait-card img {
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 32px 72px rgba(0, 0, 0, 0.55),
+    0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* ---- Tournaments strip on home ---- */
+body.theme-dark .tournaments-eyebrow {
+  color: var(--pv2-text-muted);
+}
+
+body.theme-dark .tournament-logo-card {
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border-color: var(--pv2-border);
+  backdrop-filter: blur(8px);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+body.theme-dark .tournament-logo-card:hover {
+  border-color: rgba(201, 168, 76, 0.35);
+  box-shadow:
+    0 24px 52px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+body.theme-dark .tournament-logo-card img {
+  filter: grayscale(1) brightness(1.5);
+  opacity: 0.65;
+}
+
+body.theme-dark .tournament-logo-card:hover img {
+  filter: grayscale(0) brightness(1.05);
+  opacity: 1;
+}
+
+/* ---- Contact / inquiry form ---- */
+body.theme-dark .contact-form {
+  background: linear-gradient(150deg, #141311 0%, #0f0e0c 60%, #0b0a09 100%);
+  border-color: var(--pv2-border);
+  box-shadow:
+    0 32px 72px rgba(0, 0, 0, 0.55),
+    0 6px 18px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+body.theme-dark .contact-form label {
+  color: var(--pv2-gold);
+  letter-spacing: 0.16em;
+}
+
+body.theme-dark .contact-form input,
+body.theme-dark .contact-form textarea {
+  background: rgba(0, 0, 0, 0.4);
+  border-color: var(--pv2-border-strong);
+  color: var(--pv2-text);
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.6),
+    0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+body.theme-dark .contact-form input::placeholder,
+body.theme-dark .contact-form textarea::placeholder {
+  color: rgba(241, 236, 226, 0.32);
+}
+
+body.theme-dark .contact-form input:focus,
+body.theme-dark .contact-form textarea:focus {
+  outline: none;
+  border-color: rgba(201, 168, 76, 0.6);
+  background: rgba(0, 0, 0, 0.55);
+  box-shadow:
+    0 0 0 4px rgba(201, 168, 76, 0.1),
+    inset 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+body.theme-dark .submit-button {
+  background: var(--pv2-gold);
+  color: #0a0a0a;
+  border-color: var(--pv2-gold);
+  box-shadow:
+    0 12px 32px rgba(201, 168, 76, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+body.theme-dark .submit-button:hover {
+  background: var(--pv2-gold-light);
+  box-shadow:
+    0 16px 38px rgba(201, 168, 76, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+body.theme-dark .submit-button::before {
+  display: none;
+}
+
+body.theme-dark .form-success {
+  background: linear-gradient(150deg, #1c1a14 0%, #15140f 60%, #0e0d0a 100%);
+  border-color: rgba(201, 168, 76, 0.32);
+  box-shadow:
+    0 32px 72px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+body.theme-dark .form-success p:last-child {
+  color: var(--pv2-text-muted);
+}
+
+/* ---- Footer panel (home page yellow → dark) ---- */
+body.theme-dark .site-footer:not(.portfolio-v2-footer) .footer-panel {
+  background: linear-gradient(150deg, #141311 0%, #0e0d0a 60%, #050505 100%);
+  border-color: var(--pv2-border);
+  box-shadow:
+    0 32px 72px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+body.theme-dark .site-footer:not(.portfolio-v2-footer) .footer-panel::before {
+  background: linear-gradient(180deg, rgba(201, 168, 76, 0.06) 0%, transparent 100%);
+}
+
+body.theme-dark .footer-follow {
+  color: var(--pv2-text-muted);
+}
+
+body.theme-dark .footer-signoff {
+  color: rgba(241, 236, 226, 0.78);
+}
+
+body.theme-dark .footer-social,
+body.theme-dark .footer-backtotop {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--pv2-border-strong);
+  color: var(--pv2-text-muted);
+}
+
+body.theme-dark .footer-social:hover,
+body.theme-dark .footer-backtotop:hover {
+  background: rgba(201, 168, 76, 0.1);
+  border-color: var(--pv2-gold);
+  color: var(--pv2-gold);
+}
+
+/* Mobile-only home-page tweaks for dark theme */
+@media (max-width: 760px) {
+  body.theme-dark .about-preview .profile-card {
+    background: linear-gradient(150deg, #1c1a14 0%, #15140f 55%, #0e0d0a 100%);
+  }
+}
+
+/* ---- Coming-soon sport chip state ---- */
+body.theme-dark .sport-nav-chip.is-coming-soon {
+  color: rgba(241, 236, 226, 0.4);
+  border-color: var(--pv2-border);
+  background: rgba(255, 255, 255, 0.02);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+body.theme-dark .sport-nav-chip.is-coming-soon .sport-nav-chip__count {
+  color: rgba(241, 236, 226, 0.32);
+  opacity: 1;
+}
+
+body.theme-dark .sport-nav-chip__icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* ---- Inquire modal (replaces the old #inquire section) ---- */
+body.modal-open {
+  overflow: hidden;
+}
+
+.inquire-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px) saturate(0.9);
+  -webkit-backdrop-filter: blur(10px) saturate(0.9);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
+}
+
+.inquire-modal.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.inquire-modal__card {
+  position: relative;
+  width: min(540px, 100%);
+  max-height: calc(100vh - 3rem);
+  overflow-y: auto;
+  padding: 2.5rem 2rem 2rem;
+  border-radius: 18px;
+  background: linear-gradient(150deg, #141311 0%, #0f0e0c 60%, #0b0a09 100%);
+  border: 1px solid var(--pv2-border);
+  box-shadow:
+    0 32px 72px rgba(0, 0, 0, 0.6),
+    0 8px 24px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  color: var(--pv2-text);
+  transform: translateY(18px);
+  transition: transform 320ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.inquire-modal.is-open .inquire-modal__card {
+  transform: translateY(0);
+}
+
+.inquire-modal__close {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.85rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  color: var(--pv2-text-muted);
+  font-size: 1.45rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 999px;
+  transition: color 180ms ease, background 180ms ease;
+}
+
+.inquire-modal__close:hover {
+  color: var(--pv2-gold);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.inquire-modal__eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--pv2-gold);
+}
+
+.inquire-modal__title {
+  margin: 0 0 0.5rem;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  line-height: 1.15;
+  color: var(--pv2-text);
+}
+
+.inquire-modal__text {
+  margin: 0 0 1.5rem;
+  color: var(--pv2-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Reset the standalone .contact-form card chrome when nested in the modal —
+   the modal card already provides the surface, border and shadow. */
+.inquire-modal .contact-form,
+.inquire-modal .form-success {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0;
+  border-radius: 0;
+}
+
+.inquire-modal .form-success {
+  text-align: left;
+  padding-top: 0.5rem;
+}
+
+@media (max-width: 540px) {
+  .inquire-modal {
+    padding: 0.75rem;
+    align-items: flex-end;
+  }
+
+  .inquire-modal__card {
+    padding: 2rem 1.25rem 1.25rem;
+    border-radius: 18px 18px 12px 12px;
+    max-height: calc(100vh - 1.5rem);
+  }
+}
+
+
