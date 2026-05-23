@@ -26,14 +26,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body id="top">
+<body id="top" class="theme-dark">
   <header class="site-header">
     <div class="container header-stack">
       <a class="brand-lockup" href="#top" aria-label="GoldMonkVisuals home">
-        <img class="brand-logo" src="images/logo/goldmonks_logo.png" alt="GoldMonkVisuals logo" width="92" height="92">
-        <span class="brand-kicker">Rumit Khade Photography</span>
-        <span class="brand-name">GoldMonkVisuals</span>
-        <span class="brand-divider"></span>
+        <img class="brand-logo" src="images/logo/goldmonks_logo.png" alt="GoldMonkVisuals logo" width="44" height="44">
+        <span class="brand-text">
+          <span class="brand-name">GoldMonkVisuals</span>
+          <span class="brand-kicker">Rumit Khade Photography</span>
+        </span>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
         <span></span>
@@ -43,7 +44,7 @@
         <a href="#top">Home</a>
         <a href="portfolio.html">Portfolio</a>
         <a href="#about">About</a>
-        <a href="#inquire">Inquire</a>
+        <a href="#inquire-modal" data-open-inquire>Inquire</a>
       </nav>
     </div>
   </header>
@@ -90,47 +91,16 @@
       </div>
     </section>
 
-    <section id="inquire" class="section">
-      <div class="container contact-layout">
-        <div class="copy-card inquiry-copy">
-          <p class="eyebrow">Booking</p>
-          <h2>Tell me what you need.</h2>
-          <p>Whether you are booking a tournament, a player shoot, a portrait session, or event coverage, the inquiry form below is designed to keep the first step simple and professional.</p>
-          <p>You can also reach out directly through Instagram, mobile, or LinkedIn if that is easier for you.</p>
+    <section class="portfolio-v2-cta" id="inquire">
+      <img class="portfolio-v2-cta__bg" src="https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD0062_y5tamb" alt="" aria-hidden="true" loading="lazy">
+      <div class="container portfolio-v2-cta__inner">
+        <div class="portfolio-v2-cta__copy">
+          <p class="portfolio-v2-cta__eyebrow">Book a Session</p>
+          <h2 class="portfolio-v2-cta__title">Need sports coverage?<br>Let's create something memorable.</h2>
+          <p class="portfolio-v2-cta__text">Available for cricket, football and kushti events across Maharashtra.</p>
         </div>
-
-        <form class="contact-form" name="inquiry" method="POST" data-netlify="true" netlify netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="inquiry">
-          <p class="form-honeypot">
-            <label>Don’t fill this out if you're human: <input name="bot-field"></label>
-          </p>
-
-          <div class="form-field">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" placeholder="Your name" required>
-          </div>
-
-          <div class="form-field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" required>
-          </div>
-
-          <div class="form-field">
-            <label for="phone">Mobile</label>
-            <input id="phone" name="phone" type="tel" placeholder="Your mobile number">
-          </div>
-
-          <div class="form-field">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="6" placeholder="Tell me about the shoot, dates, and requirements." required></textarea>
-          </div>
-
-          <button class="button submit-button" type="submit">Submit Inquiry</button>
-        </form>
-        <div class="form-success" id="form-success" hidden>
-          <p class="eyebrow">Message Sent</p>
-          <h2>Thank you, I'll be in touch soon.</h2>
-          <p>Your inquiry has been received. I typically respond within 24 hours.</p>
+        <div class="portfolio-v2-cta__actions">
+          <a href="#inquire-modal" class="portfolio-v2-cta__primary" data-open-inquire>Inquire Now →</a>
         </div>
       </div>
     </section>
@@ -146,31 +116,61 @@
     <button class="lightbox-nav lightbox-next" type="button" aria-label="View next image">&#10095;</button>
   </div>
 
-  <footer class="site-footer">
-    <div class="container footer-panel">
-      <div class="footer-top">
-        <p class="footer-follow">Stay in touch, follow me on Instagram</p>
-      </div>
-
-      <div class="footer-gallery" data-footer-gallery></div>
-
-      <div class="footer-bottom-row">
-        <p class="footer-signoff">&copy; 2026 GoldMonkVisuals</p>
-        <div class="footer-socials">
-          <a class="footer-social" href="https://www.instagram.com/goldmonkvisuals/" target="_blank" rel="noreferrer" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.25" y="3.25" width="17.5" height="17.5" rx="5"></rect><circle cx="12" cy="12" r="4.25"></circle><circle cx="17.4" cy="6.6" r="1"></circle></svg>
-          </a>
-          <a class="footer-social" href="tel:+919209184662" aria-label="Call GoldMonkVisuals">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 4.8h2.8l1.4 4-1.7 1.7a14.6 14.6 0 0 0 4.4 4.4l1.7-1.7 4 1.4v2.8a1.7 1.7 0 0 1-1.9 1.7A16.5 16.5 0 0 1 4.9 6.7 1.7 1.7 0 0 1 6.6 4.8z"></path></svg>
-          </a>
-          <a class="footer-social" href="https://www.linkedin.com/in/rumit-khade-336886b6/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 10v9"></path><path d="M8 7.2a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4z"></path><path d="M12 10v9"></path><path d="M12 14.2c0-2.1 1.3-4.2 4-4.2 2.3 0 4 1.4 4 4.6V19"></path></svg>
-          </a>
-        </div>
-        <a class="footer-backtotop" href="#top" aria-label="Back to top">↑</a>
+  <footer class="site-footer portfolio-v2-footer">
+    <div class="container portfolio-v2-footer__inner">
+      <p class="portfolio-v2-footer__copy">&copy; 2026 GoldMonkVisuals</p>
+      <div class="portfolio-v2-footer__links">
+        <a href="https://www.instagram.com/goldmonkvisuals/" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="tel:+919209184662">+91 92091 84662</a>
+        <a href="https://www.linkedin.com/in/rumit-khade-336886b6/" target="_blank" rel="noreferrer">LinkedIn</a>
       </div>
     </div>
   </footer>
+
+  <a href="#top" class="portfolio-v2-backtop" aria-label="Back to top" title="Back to top">↑</a>
+
+  <div class="inquire-modal" id="inquire-modal" role="dialog" aria-modal="true" aria-labelledby="inquire-modal-title" aria-hidden="true">
+    <div class="inquire-modal__card" role="document">
+      <button class="inquire-modal__close" type="button" aria-label="Close inquiry form">&times;</button>
+      <p class="inquire-modal__eyebrow">Inquiry</p>
+      <h2 class="inquire-modal__title" id="inquire-modal-title">Tell me about the shoot.</h2>
+      <p class="inquire-modal__text">Share dates, location, and what you need covered. I usually reply within 24 hours.</p>
+
+      <form class="contact-form" name="inquiry" method="POST" data-netlify="true" netlify netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="inquiry">
+        <p class="form-honeypot">
+          <label>Don’t fill this out if you're human: <input name="bot-field"></label>
+        </p>
+
+        <div class="form-field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" required>
+        </div>
+
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required>
+        </div>
+
+        <div class="form-field">
+          <label for="phone">Mobile</label>
+          <input id="phone" name="phone" type="tel" placeholder="Your mobile number">
+        </div>
+
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Tell me about the shoot, dates, and requirements." required></textarea>
+        </div>
+
+        <button class="button submit-button" type="submit">Submit Inquiry</button>
+      </form>
+      <div class="form-success" id="form-success" hidden>
+        <p class="eyebrow">Message Sent</p>
+        <h2>Thank you, I'll be in touch soon.</h2>
+        <p>Your inquiry has been received. I typically respond within 24 hours.</p>
+      </div>
+    </div>
+  </div>
 
   <!-- Schema.org structured data -->
   <script type="application/ld+json">
@@ -206,7 +206,6 @@
   </script>
 
   <script src="images/home-slider/manifest.js"></script>
-  <script src="images/footer-gallery/manifest.js"></script>
   <script src="js/site.js" defer></script>
 </body>
 </html>
