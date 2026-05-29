@@ -1,7 +1,7 @@
 (function () {
   window.PORTFOLIO_MEDIA = {
   "hero": {
-    "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1800/GOLD0062_y5tamb",
+    "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD0338_nvykpt",
     "alt": "GoldMonkVisuals sports portfolio hero image"
   },
   "sports": [
