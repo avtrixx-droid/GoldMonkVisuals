@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sports Portfolio | GoldMonkVisuals</title>
+  <meta name="description" content="Browse a curated sports photography portfolio by GoldMonkVisuals, featuring athlete portraits, match intensity, and tournament storytelling." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --surface2: #1a1a1a;
+      --border: rgba(255,255,255,0.08);
+      --gold: #c9a84c;
+      --gold-light: #e2c97e;
+      --text: #f0ece4;
+      --text-muted: #888580;
+      --nav-height: 70px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      z-index: 100;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .nav-brand img {
+      height: 36px;
+      width: auto;
+    }
+
+    .nav-brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .nav-brand-text .name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-brand-text .sub {
+      font-size: 10px;
+      font-weight: 300;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--gold); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 52vh;
+      min-height: 360px;
+      margin-top: var(--nav-height);
+      overflow: hidden;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.65) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding-bottom: 3.5rem;
+      text-align: center;
+    }
+
+    .hero-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: 0.01em;
+      line-height: 1.15;
+      max-width: 640px;
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .section {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── INTRO LINE ── */
+    .intro-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2.5rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .intro-bar p {
+      color: var(--text-muted);
+      font-size: 14px;
+      max-width: 500px;
+    }
+
+    .intro-bar .shot-count {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── MASONRY GRID ── */
+    .grid-section {
+      padding: 2.5rem 0 5rem;
+    }
+
+    .photo-grid {
+      columns: 3;
+      column-gap: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .photo-grid { columns: 2; }
+    }
+
+    @media (max-width: 540px) {
+      .photo-grid { columns: 1; }
+      nav { padding: 0 1.25rem; }
+      .nav-links { gap: 1rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .section { padding: 0 1.25rem; }
+    }
+
+    .photo-item {
+      break-inside: avoid;
+      margin-bottom: 12px;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      display: block;
+    }
+
+    .photo-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .photo-item:hover img {
+      transform: scale(1.04);
+    }
+
+    .photo-item .caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.75));
+      padding: 2rem 1rem 0.85rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .photo-item:hover .caption { opacity: 1; }
+
+    .photo-item .caption span {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+
+    /* ── TOURNAMENT STRIP ── */
+    .tournament-strip {
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tournament-strip .label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-align: center;
+      margin-bottom: 1.75rem;
+    }
+
+    .tournament-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tournament-logos img {
+      height: 52px;
+      width: auto;
+      opacity: 0.55;
+      filter: grayscale(1) brightness(1.4);
+      transition: opacity 0.2s, filter 0.2s;
+    }
+
+    .tournament-logos img:hover {
+      opacity: 1;
+      filter: none;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      position: relative;
+      overflow: hidden;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cta-bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.12;
+      filter: grayscale(1);
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 2rem;
+      padding: 4.5rem 2.5rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 700px) {
+      .cta-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 3.5rem 1.5rem;
+      }
+    }
+
+    .cta-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .cta-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+
+    .cta-section p {
+      color: var(--text-muted);
+      font-size: 14.5px;
+      max-width: 460px;
+      line-height: 1.7;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--gold);
+      color: #0a0a0a;
+      text-decoration: none;
+      padding: 1rem 2.75rem;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 0.85rem 2rem;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: border-color 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.95);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 88vh;
+      object-fit: contain;
+      display: block;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1.5rem; right: 1.75rem;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 2rem;
+      cursor: pointer;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+
+    .lightbox-close:hover { color: var(--text); }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 2.5rem;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      transition: color 0.2s;
+    }
+
+    .lightbox-nav:hover { color: var(--gold); }
+    .lightbox-prev { left: 1rem; }
+    .lightbox-next { right: 1rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      max-width: 100%;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .footer-social {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .footer-social a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+
+    .footer-social a:hover { color: var(--gold); }
+
+    .back-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 42px;
+      height: 42px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .back-top:hover { border-color: var(--gold); color: var(--gold); }
+  
+.sport-nav{
+display:flex;
+justify-content:center;
+gap:20px;
+margin:40px auto;
+flex-wrap:wrap;
+}
+.sport-nav a{
+border:1px solid var(--gold);
+padding:12px 24px;
+text-decoration:none;
+color:var(--gold);
+}
+.portfolio-category{
+max-width:1280px;
+margin:60px auto 20px;
+padding:0 2rem;
+}
+.portfolio-category h2{
+font-family:'Cormorant Garamond',serif;
+font-size:2.2rem;
+margin-bottom:8px;
+}
+.portfolio-category p{color:var(--text-muted);}
+
+</style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="https://goldmonkvisuals.com/#top" class="nav-brand">
+      <img src="https://goldmonkvisuals.com/images/logo/goldmonks_logo.png" alt="GoldMonkVisuals logo" />
+      <div class="nav-brand-text">
+        <span class="name">GoldMonkVisuals</span>
+        <span class="sub">Rumit Khade Photography</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="https://goldmonkvisuals.com/#top">Home</a></li>
+      <li><a href="/portfolio" class="active">Portfolio</a></li>
+      <li><a href="https://goldmonkvisuals.com/#about">About</a></li>
+      <li><a href="https://goldmonkvisuals.com/#inquire">Inquire</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <img src="https://goldmonkvisuals.com/images/Portfolio/Sports/GOLD0062.jpg" alt="Cricket sports photography by GoldMonkVisuals" />
+    <div class="hero-overlay">
+      <p class="hero-label">Sports Portfolio</p>
+      <h1>Cricket. Football. Kushti.<br>Stories told through sport.</h1>
+    </div>
+  </div>
+
+  <!-- INTRO BAR -->
+  <div class="section">
+    <div class="intro-bar">
+      <p>A collection of moments captured across cricket, football and traditional Indian wrestling across Maharashtra.</p>
+      <span class="shot-count">DY Patil T20 &nbsp;·&nbsp; Times Cricket Shield &nbsp;·&nbsp; TRPS Corporate League</span>
+    </div>
+  </div>
+
+<div class="sport-nav">
+  <a href="#cricket">🏏 Cricket</a>
+  <a href="#football">⚽ Football</a>
+  <a href="#kushti">🤼 Kushti</a>
+</div>
+
+
+  
+<div class="portfolio-category" id="cricket">
+<h2>🏏 Cricket</h2>
+<p>Tournament coverage, player portraits and defining moments.</p>
+</div>
+
+<div class="portfolio-category" id="football">
+<h2>⚽ Football</h2>
+<p>Add your SFL and football league images here.</p>
+</div>
+
+<div class="portfolio-category" id="kushti">
+<h2>🤼 Kushti</h2>
+<p>Capturing the power, tradition and emotion of Indian wrestling.</p>
+</div>
+
+<!-- PHOTO GRID -->
+  <div class="section grid-section">
+    <div class="photo-grid" id="photoGrid">
+
+      <div class="photo-item" onclick="openLightbox(0)">
+        <img src="https://goldmonkvisuals.com/images/footer-gallery/DYPATIL1.jpg" alt="DY Patil T20 cricket action" loading="lazy" />
+        <div class="caption"><span>DY Patil T20</span></div>
+      </div>
+
+      <div class="photo-item" onclick="openLightbox(1)">
+        <img src="https://goldmonkvisuals.com/images/footer-gallery/DYPATIL2.jpg" alt="DY Patil T20 cricket moment" loading="lazy" />
+        <div class="caption"><span>DY Patil T20</span></div>
+      </div>
+
+      <div class="photo-item" onclick="openLightbox(2)">
+        <img src="https://goldmonkvisuals.com/images/footer-gallery/DYPATIL3.jpg" alt="DY Patil T20 player portrait" loading="lazy" />
+        <div class="caption"><span>DY Patil T20</span></div>
+      </div>
+
+      <div class="photo-item" onclick="openLightbox(3)">
+        <img src="https://goldmonkvisuals.com/images/footer-gallery/DYPATIL4.jpg" alt="DY Patil T20 tournament coverage" loading="lazy" />
+        <div class="caption"><span>DY Patil T20</span></div>
+      </div>
+
+      <div class="photo-item" onclick="openLightbox(4)">
+        <img src="https://goldmonkvisuals.com/images/footer-gallery/DYPATIL5.jpg" alt="DY Patil T20 on field intensity" loading="lazy" />
+        <div class="caption"><span>DY Patil T20</span></div>
+      </div>
+
+      <div class="photo-item" onclick="openLightbox(5)">
+        <img src="https://goldmonkvisuals.com/images/footer-gallery/GOLD3033.jpg" alt="Cricket sports photography" loading="lazy" />
+        <div class="caption"><span>Sports Coverage</span></div>
+      </div>
+
+      <div class="photo-item" onclick="openLightbox(6)">
+        <img src="https://goldmonkvisuals.com/images/home-slider/GOLD8012.jpg" alt="Cricket match moment by GoldMonkVisuals" loading="lazy" />
+        <div class="caption"><span>Sports Coverage</span></div>
+      </div>
+
+      <div class="photo-item" onclick="openLightbox(7)">
+        <img src="https://goldmonkvisuals.com/images/Portfolio/Sports/GOLD0062.jpg" alt="Sports photography by Rumit Khade" loading="lazy" />
+        <div class="caption"><span>Sports Coverage</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOURNAMENT STRIP -->
+  <div class="section">
+    <div class="tournament-strip">
+      <p class="label">Tournaments Covered</p>
+      <div class="tournament-logos">
+        <img src="https://goldmonkvisuals.com/images/logo/dy-patil-t20.png" alt="DY Patil T20 Tournament" />
+        <img src="https://goldmonkvisuals.com/images/logo/times-cricket-shield.png" alt="Times Cricket Shield" />
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <img src="https://goldmonkvisuals.com/images/footer-gallery/DYPATIL5.jpg" alt="" class="cta-bg-img" aria-hidden="true" />
+    <div class="cta-inner">
+      <div>
+        <p class="cta-eyebrow">Book a Session</p>
+        <h2>Need sports coverage?<br>Let's create something memorable.</h2>
+        <p>Available for cricket, football and kushti events across Maharashtra.</p>
+      </div>
+      <div class="cta-buttons">
+        <a href="https://goldmonkvisuals.com/#inquire" class="btn-primary">Inquire Now →</a>
+        <a href="https://goldmonkvisuals.com/#about" class="btn-secondary">About Me</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-copy">© 2026 GoldMonkVisuals</span>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/goldmonkvisuals/" target="_blank" rel="noopener">Instagram</a>
+      <a href="tel:+919209184662">+91 92091 84662</a>
+      <a href="https://www.linkedin.com/in/rumit-khade-336886b6/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <a href="#" class="back-top" title="Back to top">↑</a>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()">×</button>
+    <button class="lightbox-nav lightbox-prev" onclick="shiftLightbox(-1)">‹</button>
+    <img id="lightboxImg" src="" alt="Photography by GoldMonkVisuals" />
+    <button class="lightbox-nav lightbox-next" onclick="shiftLightbox(1)">›</button>
+  </div>
+
+  <script>
+    const imgs = Array.from(document.querySelectorAll('.photo-item img')).map(i => i.src);
+    let current = 0;
+
+    function openLightbox(idx) {
+      current = idx;
+      document.getElementById('lightboxImg').src = imgs[idx];
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function shiftLightbox(dir) {
+      current = (current + dir + imgs.length) % imgs.length;
+      document.getElementById('lightboxImg').src = imgs[current];
+    }
+
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') shiftLightbox(-1);
+      if (e.key === 'ArrowRight') shiftLightbox(1);
+    });
+  </script>
+
+</body>
+</html>

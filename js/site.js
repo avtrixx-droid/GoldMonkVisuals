@@ -287,7 +287,7 @@ function renderPortfolioMedia() {
     return;
   }
 
-  const batchSize = 25;
+  const batchSize = 10;
 
   const createPortfolioCard = (item, sectionTitle) => {
     // Use a smaller width for grid thumbnails (faster loading); keep full-res URL on
@@ -404,6 +404,61 @@ function renderPortfolioMedia() {
     if (chips.length > 0) {
       chips[0].classList.add("is-active");
     }
+
+    // ------------------------------------------------------------------
+    // JS-driven scroll navigation for sport chips.
+    //
+    // Design decisions:
+    //
+    // 1. document.getElementById — simpler than querySelector + CSS.escape,
+    //    and guaranteed to target the exact element by its ID string.
+    //
+    // 2. No extra padding offset.  getBoundingClientRect().top gives the
+    //    border-box top.  Subtracting stickyH aligns the section's very
+    //    first pixel flush with the bottom of the sticky bars.  The sticky
+    //    bars themselves (opaque dark backgrounds) cover the CSS margin-gap
+    //    above the section, so no previous-sport content peeks through.
+    //
+    // 3. Active chip updated IMMEDIATELY on click — don't wait for the
+    //    IntersectionObserver, which fires only once the section enters
+    //    the middle-15% triggering zone (rootMargin "-30% 0px -55% 0px").
+    //    Without this, the Cricket chip stays active during the entire
+    //    scroll animation, making it look like navigation didn't work.
+    //
+    // 4. requestAnimationFrame wrapper — waits for one paint so any
+    //    already-queued layout shifts (lazy-image reflows) are flushed
+    //    before we read getBoundingClientRect().
+    // ------------------------------------------------------------------
+    const scrollToSportGroup = (slug) => {
+      const target = document.getElementById("sport-" + slug);
+      if (!target) {
+        return;
+      }
+      // rAF: let pending layout updates flush before measuring positions
+      requestAnimationFrame(() => {
+        const siteHeader = document.querySelector(".site-header");
+        const sportNav   = document.querySelector(".portfolio-v2-sport-nav");
+        const stickyH =
+          (siteHeader ? siteHeader.offsetHeight : 0) +
+          (sportNav   ? sportNav.offsetHeight   : 0);
+        const scrollY = window.scrollY !== undefined ? window.scrollY : window.pageYOffset;
+        // Align the section's border-box top with the bottom of the sticky bars.
+        // The opaque sticky bars cover the margin-gap + any trailing previous-section
+        // content, so Football starts cleanly below the nav.
+        const top = target.getBoundingClientRect().top + scrollY - stickyH;
+        window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+      });
+    };
+
+    chips.forEach((chip) => {
+      chip.addEventListener("click", (e) => {
+        e.preventDefault();
+        const slug = chip.dataset.sportTarget;
+        // Mark active immediately — do not wait for IntersectionObserver
+        chips.forEach((c) => c.classList.toggle("is-active", c.dataset.sportTarget === slug));
+        scrollToSportGroup(slug);
+      });
+    });
 
     const groups = Array.from(portfolioSectionsTarget.querySelectorAll("[data-sport-group]"));
 
