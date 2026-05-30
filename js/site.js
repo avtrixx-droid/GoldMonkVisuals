@@ -287,15 +287,20 @@ function renderPortfolioMedia() {
     return;
   }
 
-  const batchSize = 12;
+  const batchSize = 25;
 
-  const createPortfolioCard = (item, sectionTitle) => `
+  const createPortfolioCard = (item, sectionTitle) => {
+    // Use a smaller width for grid thumbnails (faster loading); keep full-res URL on
+    // data-src so the lightbox still opens the high-quality version.
+    const thumbSrc = item.src.replace(/,w_\d+\//, ",w_800/");
+    return `
     <button class="gallery-item portfolio-grid-item" type="button" data-src="${escapeHtml(item.src)}" data-alt="${escapeHtml(item.alt)}">
       <span aria-hidden="true"></span>
-      <img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.alt)}" width="1600" height="1100" sizes="(max-width: 540px) 100vw, (max-width: 900px) 50vw, 33vw" loading="lazy" decoding="async" crossorigin="anonymous">
+      <img src="${escapeHtml(thumbSrc)}" alt="${escapeHtml(item.alt)}" width="800" height="533" sizes="(max-width: 540px) 100vw, (max-width: 900px) 50vw, 33vw" loading="lazy" decoding="async" crossorigin="anonymous">
       <span class="portfolio-grid-item__caption"><span>${escapeHtml(sectionTitle)}</span></span>
     </button>
   `;
+  };
 
   const sectionRefs = [];
 
@@ -539,6 +544,22 @@ function setupInquireModal() {
     modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
 
+    // Reset form state so re-opens after a successful submission show a fresh form.
+    const contactForm = modal.querySelector(".contact-form");
+    const formSuccess = modal.querySelector("#form-success");
+    if (contactForm) {
+      contactForm.hidden = false;
+      contactForm.reset();
+      const submitBtn = contactForm.querySelector(".submit-button");
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit Inquiry";
+      }
+    }
+    if (formSuccess) {
+      formSuccess.hidden = true;
+    }
+
     const firstField = card?.querySelector("input:not([type=hidden]), textarea");
     window.setTimeout(() => firstField?.focus(), 60);
   };
@@ -576,6 +597,11 @@ function setupInquireModal() {
       closeModal();
     }
   });
+
+  // Auto-close modal 2.5 s after a successful inquiry submission.
+  window.addEventListener("inquiry-sent", () => {
+    window.setTimeout(closeModal, 2500);
+  });
 }
 
 function setupContactForm() {
@@ -603,6 +629,7 @@ function setupContactForm() {
       if (response.ok) {
         form.hidden = true;
         successEl.hidden = false;
+        window.dispatchEvent(new CustomEvent("inquiry-sent"));
       } else {
         form.submit();
       }

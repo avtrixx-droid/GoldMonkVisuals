@@ -1498,7 +1498,7 @@ body.theme-dark .portfolio-v2-hero__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 32%;
+  object-position: center top;
 }
 
 body.theme-dark .portfolio-v2-hero__overlay {
@@ -1602,7 +1602,7 @@ body.theme-dark .portfolio-v2-intro__pills li {
 /* Sport nav (dynamically populated) */
 body.theme-dark .portfolio-v2-sport-nav {
   position: sticky;
-  top: 0;
+  top: 64px; /* stick below the ~64px site-header, not behind it */
   z-index: 30;
   background: rgba(10, 10, 10, 0.92);
   backdrop-filter: blur(12px);
@@ -1670,7 +1670,7 @@ body.theme-dark .portfolio-v2-gallery {
 
 body.theme-dark .portfolio-sport-group {
   margin-top: 3.5rem;
-  scroll-margin-top: calc(var(--pv2-nav-height) + 70px);
+  scroll-margin-top: 148px; /* site-header (~64px) + sport-nav (~70px) + 14px breathing room */
 }
 
 body.theme-dark .portfolio-sport-group:first-child {
@@ -1707,7 +1707,7 @@ body.theme-dark .portfolio-sport-meta {
 
 body.theme-dark .portfolio-gallery-block {
   margin-top: 2.5rem;
-  scroll-margin-top: calc(var(--pv2-nav-height) + 70px);
+  scroll-margin-top: 148px;
 }
 
 body.theme-dark .portfolio-gallery-block:first-of-type {
