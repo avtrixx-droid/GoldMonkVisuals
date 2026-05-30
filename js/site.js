@@ -287,15 +287,20 @@ function renderPortfolioMedia() {
     return;
   }
 
-  const batchSize = 12;
+  const batchSize = 10;
 
-  const createPortfolioCard = (item, sectionTitle) => `
+  const createPortfolioCard = (item, sectionTitle) => {
+    // Use a smaller width for grid thumbnails (faster loading); keep full-res URL on
+    // data-src so the lightbox still opens the high-quality version.
+    const thumbSrc = item.src.replace(/,w_\d+\//, ",w_800/");
+    return `
     <button class="gallery-item portfolio-grid-item" type="button" data-src="${escapeHtml(item.src)}" data-alt="${escapeHtml(item.alt)}">
       <span aria-hidden="true"></span>
-      <img src="${escapeHtml(item.src)}" alt="${escapeHtml(item.alt)}" width="1600" height="1100" sizes="(max-width: 540px) 100vw, (max-width: 900px) 50vw, 33vw" loading="lazy" decoding="async" crossorigin="anonymous">
+      <img src="${escapeHtml(thumbSrc)}" alt="${escapeHtml(item.alt)}" width="800" height="533" sizes="(max-width: 540px) 100vw, (max-width: 900px) 50vw, 33vw" loading="lazy" decoding="async" crossorigin="anonymous">
       <span class="portfolio-grid-item__caption"><span>${escapeHtml(sectionTitle)}</span></span>
     </button>
   `;
+  };
 
   const sectionRefs = [];
 
@@ -399,6 +404,61 @@ function renderPortfolioMedia() {
     if (chips.length > 0) {
       chips[0].classList.add("is-active");
     }
+
+    // ------------------------------------------------------------------
+    // JS-driven scroll navigation for sport chips.
+    //
+    // Design decisions:
+    //
+    // 1. document.getElementById — simpler than querySelector + CSS.escape,
+    //    and guaranteed to target the exact element by its ID string.
+    //
+    // 2. No extra padding offset.  getBoundingClientRect().top gives the
+    //    border-box top.  Subtracting stickyH aligns the section's very
+    //    first pixel flush with the bottom of the sticky bars.  The sticky
+    //    bars themselves (opaque dark backgrounds) cover the CSS margin-gap
+    //    above the section, so no previous-sport content peeks through.
+    //
+    // 3. Active chip updated IMMEDIATELY on click — don't wait for the
+    //    IntersectionObserver, which fires only once the section enters
+    //    the middle-15% triggering zone (rootMargin "-30% 0px -55% 0px").
+    //    Without this, the Cricket chip stays active during the entire
+    //    scroll animation, making it look like navigation didn't work.
+    //
+    // 4. requestAnimationFrame wrapper — waits for one paint so any
+    //    already-queued layout shifts (lazy-image reflows) are flushed
+    //    before we read getBoundingClientRect().
+    // ------------------------------------------------------------------
+    const scrollToSportGroup = (slug) => {
+      const target = document.getElementById("sport-" + slug);
+      if (!target) {
+        return;
+      }
+      // rAF: let pending layout updates flush before measuring positions
+      requestAnimationFrame(() => {
+        const siteHeader = document.querySelector(".site-header");
+        const sportNav   = document.querySelector(".portfolio-v2-sport-nav");
+        const stickyH =
+          (siteHeader ? siteHeader.offsetHeight : 0) +
+          (sportNav   ? sportNav.offsetHeight   : 0);
+        const scrollY = window.scrollY !== undefined ? window.scrollY : window.pageYOffset;
+        // Align the section's border-box top with the bottom of the sticky bars.
+        // The opaque sticky bars cover the margin-gap + any trailing previous-section
+        // content, so Football starts cleanly below the nav.
+        const top = target.getBoundingClientRect().top + scrollY - stickyH;
+        window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+      });
+    };
+
+    chips.forEach((chip) => {
+      chip.addEventListener("click", (e) => {
+        e.preventDefault();
+        const slug = chip.dataset.sportTarget;
+        // Mark active immediately — do not wait for IntersectionObserver
+        chips.forEach((c) => c.classList.toggle("is-active", c.dataset.sportTarget === slug));
+        scrollToSportGroup(slug);
+      });
+    });
 
     const groups = Array.from(portfolioSectionsTarget.querySelectorAll("[data-sport-group]"));
 
@@ -539,6 +599,22 @@ function setupInquireModal() {
     modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("modal-open");
 
+    // Reset form state so re-opens after a successful submission show a fresh form.
+    const contactForm = modal.querySelector(".contact-form");
+    const formSuccess = modal.querySelector("#form-success");
+    if (contactForm) {
+      contactForm.hidden = false;
+      contactForm.reset();
+      const submitBtn = contactForm.querySelector(".submit-button");
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit Inquiry";
+      }
+    }
+    if (formSuccess) {
+      formSuccess.hidden = true;
+    }
+
     const firstField = card?.querySelector("input:not([type=hidden]), textarea");
     window.setTimeout(() => firstField?.focus(), 60);
   };
@@ -576,6 +652,11 @@ function setupInquireModal() {
       closeModal();
     }
   });
+
+  // Auto-close modal 2.5 s after a successful inquiry submission.
+  window.addEventListener("inquiry-sent", () => {
+    window.setTimeout(closeModal, 2500);
+  });
 }
 
 function setupContactForm() {
@@ -603,6 +684,7 @@ function setupContactForm() {
       if (response.ok) {
         form.hidden = true;
         successEl.hidden = false;
+        window.dispatchEvent(new CustomEvent("inquiry-sent"));
       } else {
         form.submit();
       }

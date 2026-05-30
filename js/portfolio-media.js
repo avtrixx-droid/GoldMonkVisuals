@@ -10,8 +10,74 @@
       "slug": "cricket",
       "sections": [
         {
+          "title": "Corporate Cricket",
+          "slug": "cricket-corporate-cricket",
+          "images": [
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD1828_qi4opd",
+              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2197_ufyeak",
+              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2258_aerg7l",
+              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2404_yya7mk",
+              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2409_ezl9gx",
+              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2435_qocpzh",
+              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2473_tgubow",
+              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2555_pfmeug",
+              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2631_grykji",
+              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2652_j7fhgp",
+              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2708_ave4jc",
+              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2732_pduifl",
+              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2938_wow8xj",
+              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3234_nzzuxs",
+              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3418_cuxrvw",
+              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+            }
+          ]
+        },
+        {
           "title": "DY Patil T20 League",
-          "slug": "cricket-01-dy-patil-t20-league",
+          "slug": "cricket-dy-patil-t20-league",
           "images": [
             {
               "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD0062_y5tamb",
@@ -248,134 +314,8 @@
           ]
         },
         {
-          "title": "Times Shield Div A - Mumbai 2026",
-          "slug": "cricket-02-times-shield-div-a-mumbai-2026",
-          "images": [
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7273_zxvmrd",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7285_qkrobd",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7476_pgdwml",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7586_tujnnw",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7597_dfmmns",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7677_teexch",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7802_vvjegy",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7821_oc0jah",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7912_lakpmb",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8012_vqfuej",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8041_ysdcnb",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8153_exilkt",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8213_ivqlnk",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8263_zsthh0",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8287_uwdlm0",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8319_ujybib",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8422_lg2xuo",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8757_loptz9",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8888_s340tq",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8915_wkh2zm",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8968_jiodac",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8996_o3jeqw",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9023_b6apcf",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9050_lblt6o",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9072_fnec59",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9100_bouquy",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9194_druccz",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9218_rbfwuc",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9255_zifmum",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9423_ulglln",
-              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-            }
-          ]
-        },
-        {
           "title": "Irrigation Premier League",
-          "slug": "cricket-03-irrigation-premier-league",
+          "slug": "cricket-irrigation-premier-league",
           "images": [
             {
               "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD1284_uemgxr",
@@ -440,74 +380,46 @@
           ]
         },
         {
-          "title": "Corporate Cricket",
-          "slug": "cricket-04-corporate-cricket",
+          "title": "Kids Cricket",
+          "slug": "cricket-kids-cricket",
           "images": [
             {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD1828_qi4opd",
-              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3021_rnyhtm",
+              "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
             },
             {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2197_ufyeak",
-              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3028_qwetao",
+              "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
             },
             {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2258_aerg7l",
-              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3033_shipam",
+              "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
             },
             {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2404_yya7mk",
-              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3039_qkfz8x",
+              "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
             },
             {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2409_ezl9gx",
-              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3075_ed2mm8",
+              "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
             },
             {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2435_qocpzh",
-              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3125_y9xhig",
+              "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
             },
             {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2473_tgubow",
-              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3148_ndry7t",
+              "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
             },
             {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2555_pfmeug",
-              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2631_grykji",
-              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2652_j7fhgp",
-              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2708_ave4jc",
-              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2732_pduifl",
-              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2938_wow8xj",
-              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3234_nzzuxs",
-              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
-            },
-            {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3418_cuxrvw",
-              "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3151_g8zqrx",
+              "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
             }
           ]
         },
         {
           "title": "Leagues And Tournaments",
-          "slug": "cricket-05-leagues-and-tournaments",
+          "slug": "cricket-leagues-and-tournaments",
           "images": [
             {
               "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD0648_bcggdh",
@@ -668,40 +580,128 @@
           ]
         },
         {
-          "title": "Kids Cricket",
-          "slug": "cricket-06-kids-cricket",
+          "title": "Times Shield Div A - Mumbai 2026",
+          "slug": "cricket-times-shield-div-a-mumbai-2026",
           "images": [
             {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3021_rnyhtm",
-              "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7273_zxvmrd",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
             },
             {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3028_qwetao",
-              "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7285_qkrobd",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
             },
             {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3033_shipam",
-              "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7476_pgdwml",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
             },
             {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3039_qkfz8x",
-              "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7586_tujnnw",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
             },
             {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3075_ed2mm8",
-              "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7597_dfmmns",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
             },
             {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3125_y9xhig",
-              "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7677_teexch",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
             },
             {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3148_ndry7t",
-              "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7802_vvjegy",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
             },
             {
-              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3151_g8zqrx",
-              "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7821_oc0jah",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7912_lakpmb",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8012_vqfuej",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8041_ysdcnb",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8153_exilkt",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8213_ivqlnk",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8263_zsthh0",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8287_uwdlm0",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8319_ujybib",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8422_lg2xuo",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8757_loptz9",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8888_s340tq",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8915_wkh2zm",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8968_jiodac",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8996_o3jeqw",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9023_b6apcf",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9050_lblt6o",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9072_fnec59",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9100_bouquy",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9194_druccz",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9218_rbfwuc",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9255_zifmum",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+            },
+            {
+              "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9423_ulglln",
+              "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
             }
           ]
         }
@@ -713,7 +713,7 @@
       "sections": [
         {
           "title": "SFL - Football",
-          "slug": "football-01-sfl-football",
+          "slug": "football-sfl-football",
           "images": [
             {
               "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD0232_zokbys",
@@ -825,7 +825,7 @@
       "sections": [
         {
           "title": "Kushti Akhada",
-          "slug": "kushti-01-kushti-akhada",
+          "slug": "kushti-kushti-akhada",
           "images": [
             {
               "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD0573-Recovered_xo7jfh",
@@ -902,8 +902,75 @@
   ],
   "sections": [
     {
+      "title": "Corporate Cricket",
+      "slug": "cricket-corporate-cricket",
+      "images": [
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD1828_qi4opd",
+          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2197_ufyeak",
+          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2258_aerg7l",
+          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2404_yya7mk",
+          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2409_ezl9gx",
+          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2435_qocpzh",
+          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2473_tgubow",
+          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2555_pfmeug",
+          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2631_grykji",
+          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2652_j7fhgp",
+          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2708_ave4jc",
+          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2732_pduifl",
+          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2938_wow8xj",
+          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3234_nzzuxs",
+          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3418_cuxrvw",
+          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+        }
+      ],
+      "sport": "Cricket"
+    },
+    {
       "title": "DY Patil T20 League",
-      "slug": "cricket-01-dy-patil-t20-league",
+      "slug": "cricket-dy-patil-t20-league",
       "images": [
         {
           "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD0062_y5tamb",
@@ -1141,135 +1208,8 @@
       "sport": "Cricket"
     },
     {
-      "title": "Times Shield Div A - Mumbai 2026",
-      "slug": "cricket-02-times-shield-div-a-mumbai-2026",
-      "images": [
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7273_zxvmrd",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7285_qkrobd",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7476_pgdwml",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7586_tujnnw",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7597_dfmmns",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7677_teexch",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7802_vvjegy",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7821_oc0jah",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7912_lakpmb",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8012_vqfuej",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8041_ysdcnb",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8153_exilkt",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8213_ivqlnk",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8263_zsthh0",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8287_uwdlm0",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8319_ujybib",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8422_lg2xuo",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8757_loptz9",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8888_s340tq",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8915_wkh2zm",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8968_jiodac",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8996_o3jeqw",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9023_b6apcf",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9050_lblt6o",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9072_fnec59",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9100_bouquy",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9194_druccz",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9218_rbfwuc",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9255_zifmum",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9423_ulglln",
-          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
-        }
-      ],
-      "sport": "Cricket"
-    },
-    {
       "title": "Irrigation Premier League",
-      "slug": "cricket-03-irrigation-premier-league",
+      "slug": "cricket-irrigation-premier-league",
       "images": [
         {
           "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD1284_uemgxr",
@@ -1335,75 +1275,47 @@
       "sport": "Cricket"
     },
     {
-      "title": "Corporate Cricket",
-      "slug": "cricket-04-corporate-cricket",
+      "title": "Kids Cricket",
+      "slug": "cricket-kids-cricket",
       "images": [
         {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD1828_qi4opd",
-          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3021_rnyhtm",
+          "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
         },
         {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2197_ufyeak",
-          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3028_qwetao",
+          "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
         },
         {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2258_aerg7l",
-          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3033_shipam",
+          "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
         },
         {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2404_yya7mk",
-          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3039_qkfz8x",
+          "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
         },
         {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2409_ezl9gx",
-          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3075_ed2mm8",
+          "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
         },
         {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2435_qocpzh",
-          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3125_y9xhig",
+          "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
         },
         {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2473_tgubow",
-          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3148_ndry7t",
+          "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
         },
         {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2555_pfmeug",
-          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2631_grykji",
-          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2652_j7fhgp",
-          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2708_ave4jc",
-          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2732_pduifl",
-          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD2938_wow8xj",
-          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3234_nzzuxs",
-          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
-        },
-        {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3418_cuxrvw",
-          "alt": "GoldMonkVisuals cricket photograph from Corporate Cricket"
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3151_g8zqrx",
+          "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
         }
       ],
       "sport": "Cricket"
     },
     {
       "title": "Leagues And Tournaments",
-      "slug": "cricket-05-leagues-and-tournaments",
+      "slug": "cricket-leagues-and-tournaments",
       "images": [
         {
           "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD0648_bcggdh",
@@ -1565,47 +1477,135 @@
       "sport": "Cricket"
     },
     {
-      "title": "Kids Cricket",
-      "slug": "cricket-06-kids-cricket",
+      "title": "Times Shield Div A - Mumbai 2026",
+      "slug": "cricket-times-shield-div-a-mumbai-2026",
       "images": [
         {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3021_rnyhtm",
-          "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7273_zxvmrd",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
         },
         {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3028_qwetao",
-          "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7285_qkrobd",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
         },
         {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3033_shipam",
-          "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7476_pgdwml",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
         },
         {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3039_qkfz8x",
-          "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7586_tujnnw",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
         },
         {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3075_ed2mm8",
-          "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7597_dfmmns",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
         },
         {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3125_y9xhig",
-          "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7677_teexch",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
         },
         {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3148_ndry7t",
-          "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7802_vvjegy",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
         },
         {
-          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD3151_g8zqrx",
-          "alt": "GoldMonkVisuals cricket photograph from Kids Cricket"
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7821_oc0jah",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD7912_lakpmb",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8012_vqfuej",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8041_ysdcnb",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8153_exilkt",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8213_ivqlnk",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8263_zsthh0",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8287_uwdlm0",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8319_ujybib",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8422_lg2xuo",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8757_loptz9",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8888_s340tq",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8915_wkh2zm",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8968_jiodac",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD8996_o3jeqw",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9023_b6apcf",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9050_lblt6o",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9072_fnec59",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9100_bouquy",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9194_druccz",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9218_rbfwuc",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9255_zifmum",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
+        },
+        {
+          "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD9423_ulglln",
+          "alt": "GoldMonkVisuals cricket photograph from Times Shield Div A - Mumbai 2026"
         }
       ],
       "sport": "Cricket"
     },
     {
       "title": "SFL - Football",
-      "slug": "football-01-sfl-football",
+      "slug": "football-sfl-football",
       "images": [
         {
           "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD0232_zokbys",
@@ -1712,7 +1712,7 @@
     },
     {
       "title": "Kushti Akhada",
-      "slug": "kushti-01-kushti-akhada",
+      "slug": "kushti-kushti-akhada",
       "images": [
         {
           "src": "https://res.cloudinary.com/dtjbyme7m/image/upload/f_auto,q_auto,w_1600/GOLD0573-Recovered_xo7jfh",

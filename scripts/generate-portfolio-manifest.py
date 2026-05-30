@@ -166,6 +166,17 @@ def filter_resources(resources):
 DEFAULT_SPORT_NAME = "Cricket"
 
 
+def clean_folder_title(name):
+    """Strip leading numeric sort prefix from a Cloudinary folder name.
+
+    Examples:
+        "01 DY Patil T20 League" -> "DY Patil T20 League"
+        "03 IPL 2024"            -> "IPL 2024"
+        "Cricket"                -> "Cricket"  (unchanged – no prefix)
+    """
+    return re.sub(r"^\d+\s+", "", name.strip())
+
+
 def build_sport_groups_from_assets(root_folder, resources):
     """Group Cloudinary assets into sport -> tournament sections.
 
@@ -192,11 +203,11 @@ def build_sport_groups_from_assets(root_folder, resources):
         parts = remainder.split("/")
 
         if len(parts) >= 2:
-            sport_name = parts[0]
-            tournament_name = parts[1]
+            sport_name = clean_folder_title(parts[0])
+            tournament_name = clean_folder_title(parts[1])
         else:
             sport_name = DEFAULT_SPORT_NAME
-            tournament_name = parts[0]
+            tournament_name = clean_folder_title(parts[0])
 
         grouped.setdefault(sport_name, {}).setdefault(tournament_name, []).append(item)
 
